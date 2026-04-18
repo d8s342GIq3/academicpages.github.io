@@ -42,61 +42,52 @@
     "vendor/font-awesome/brands"
 ;
 
-/* --- ULTIMATE COLOR OVERRIDE --- */
+/* --- THEME TOGGLE OVERRIDE --- */
 
 /* 1. LIGHT MODE (Default) */
 :root {
-  --bg-color: #F8E55A;   /* Yellow */
-  --text-color: #332941; /* Purple */
+  --bg-color: #F8E55A;
+  --text-color: #332941;
 }
 
-/* Force every major container to use the background variable */
+/* 2. DARK MODE (Activated by Button) */
+[data-theme="dark"] {
+  --bg-color: #332941;
+  --text-color: #F8E55A;
+}
+
+/* 3. APPLY TO EVERYTHING (Nuclear Fix for the white boxes) */
 body, 
 .masthead, 
 .masthead__inner-wrap, 
-.greedy-nav,
-#main,
+.greedy-nav, 
+.greedy-nav .visible-links, 
+.greedy-nav .hidden-links,
+.greedy-nav button,
+#main, 
 .page__footer {
   background-color: var(--bg-color) !important;
-}
-
-/* General Text & Link Colors for Light Mode */
-body, p, li, h1, h2, h3, .site-title, .greedy-nav a {
   color: var(--text-color) !important;
 }
 
-/* 2. DARK MODE OVERRIDES */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-color: #332941;   /* Purple */
-    --text-color: #F8E55A; /* Yellow */
-  }
-
-  /* Fix for sidebar specifically - keeps layout but changes text */
-  .sidebar {
-    background-color: transparent !important;
-  }
-  
-  .sidebar .profile__name, 
-  .sidebar .author__bio,
-  .sidebar a {
-    color: var(--text-color) !important;
-  }
-
-  /* Fix for the "hamburger" menu icon on mobile */
-  .greedy-nav .navicon,
-  .greedy-nav .navicon::before,
-  .greedy-nav .navicon::after {
-    background: var(--text-color) !important;
-  }
+/* Fix for links and navigation text */
+a, .site-title, .greedy-nav a, .nav__items a, .sidebar .profile__name {
+  color: var(--text-color) !important;
 }
 
-/* 3. CLEANUP (Removes the white shadow/border) */
+/* Fix for hamburger menu and button backgrounds */
+.greedy-nav button, .greedy-nav .navicon {
+  background-color: transparent !important;
+}
+
+[data-theme="dark"] .navicon,
+[data-theme="dark"] .navicon::before,
+[data-theme="dark"] .navicon::after {
+  background-color: var(--text-color) !important;
+}
+
+/* Clear the white border/shadow */
 .masthead {
   box-shadow: none !important;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
-}
-
-.greedy-nav .visible-links li.masthead__menu-item--lg a {
-  font-weight: bold;
+  border-bottom: 1px solid rgba(0,0,0,0.1) !important;
 }
