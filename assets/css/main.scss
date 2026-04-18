@@ -44,49 +44,56 @@
 
 /* --- THEME TOGGLE OVERRIDE --- */
 
-/* 1. LIGHT MODE (Default) */
+/* LIGHT MODE */
 :root {
   --bg-color: #F8E55A;
   --text-color: #332941;
 }
 
-/* 2. DARK MODE (Activated by Button) */
+/* DARK MODE */
 [data-theme="dark"] {
   --bg-color: #332941;
   --text-color: #F8E55A;
 }
 
-/* 3. APPLY TO EVERYTHING (Nuclear Fix for the white boxes) */
+/* Target every container to ensure no white boxes remain */
 body, 
+#main,
 .masthead, 
 .masthead__inner-wrap, 
 .greedy-nav, 
+.greedy-nav ul,
 .greedy-nav .visible-links, 
 .greedy-nav .hidden-links,
 .greedy-nav button,
-#main, 
-.page__footer {
+.page__footer,
+.initial-content {
   background-color: var(--bg-color) !important;
   color: var(--text-color) !important;
 }
 
 /* Fix for links and navigation text */
-a, .site-title, .greedy-nav a, .nav__items a, .sidebar .profile__name {
+a, .site-title, .greedy-nav a, .nav__items a, .sidebar .profile__name, .sidebar .author__bio {
   color: var(--text-color) !important;
 }
 
-/* Fix for hamburger menu and button backgrounds */
-.greedy-nav button, .greedy-nav .navicon {
+/* Sidebar structure fix - makes it blend into the background */
+.sidebar {
   background-color: transparent !important;
+  border: none !important;
 }
 
-[data-theme="dark"] .navicon,
-[data-theme="dark"] .navicon::before,
-[data-theme="dark"] .navicon::after {
+/* Hamburger Menu Icon Fix */
+.navicon, .navicon::before, .navicon::after {
   background-color: var(--text-color) !important;
 }
 
-/* Clear the white border/shadow */
+.greedy-nav button {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+/* Remove shadows/borders that clash with custom colors */
 .masthead {
   box-shadow: none !important;
   border-bottom: 1px solid rgba(0,0,0,0.1) !important;
