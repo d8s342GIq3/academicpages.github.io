@@ -42,85 +42,57 @@
     "vendor/font-awesome/brands"
 ;
 
-/* --- FULL CUSTOM COLOR OVERRIDE --- */
+/* --- THE CLEAN SWEEP OVERRIDE --- */
 
-/* 1. LIGHT MODE (Default) */
-:root {
-  --bg-color: #F8E55A;   /* Yellow background */
-  --text-color: #332941; /* Dark Purple text */
-}
-
-/* Apply background to the entire body and all header containers */
-body, 
+/* 1. UNIVERSAL (Apply to everything) */
+#main, 
 .masthead, 
 .masthead__inner-wrap, 
-.page__footer, 
-.sidebar,
-.initial-content {
+.page__footer,
+.initial-content,
+body {
   background-color: var(--bg-color) !important;
   color: var(--text-color) !important;
 }
 
-/* Force consistency for navigation and headers in Light Mode */
-h1, h2, h3, h4, 
-.page__title, 
-.site-title,
-.archive__item-title, 
-.sidebar .profile__name,
-.greedy-nav a,
-.nav__items a,
-.nav__list-item a,
-.footer__links a {
+/* 2. LIGHT MODE */
+:root {
+  --bg-color: #F8E55A;   /* Yellow */
+  --text-color: #332941; /* Purple */
+}
+
+/* Light Mode Links & Titles */
+a, .site-title, .page__title, .sidebar .profile__name {
   color: #332941 !important;
 }
 
-/* Nav bar line decoration */
-.masthead {
-  border-bottom: 1px solid rgba(51, 41, 65, 0.2) !important;
-}
-
-/* 2. DARK MODE (Automatic System Toggle) */
+/* 3. DARK MODE overrides */
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg-color: #332941;   /* Dark Purple background */
-    --text-color: #F8E55A; /* Yellow text */
+    --bg-color: #332941;   /* Purple */
+    --text-color: #F8E55A; /* Yellow */
   }
 
-  body, 
-  .masthead, 
-  .masthead__inner-wrap,
-  .page__footer, 
-  .sidebar,
-  .initial-content {
-    background-color: var(--bg-color) !important;
-    color: var(--text-color) !important;
-  }
-
-  /* Force consistency for navigation and headers in Dark Mode */
-  h1, h2, h3, h4, 
-  .page__title, 
-  .site-title,
-  .archive__item-title, 
-  .sidebar .profile__name,
-  .greedy-nav a,
-  .nav__items a,
-  .nav__list-item a,
-  .footer__links a {
+  /* Dark Mode Links & Titles */
+  a, .site-title, .page__title, .sidebar .profile__name, .nav__items a {
     color: #F8E55A !important;
   }
 
-  /* Nav bar line for Dark Mode */
-  .masthead {
-    border-bottom: 1px solid rgba(248, 229, 90, 0.2) !important;
+  /* Keep the sidebar background transparent so it doesn't "box" in */
+  .sidebar {
+    background-color: transparent !important;
   }
 
-  /* Fix for social icons and hamburger menu icon */
-  .author__urls-wrapper button, 
-  .author__urls-wrapper a,
-  .main-nav .navicon,
-  .main-nav .navicon::before,
-  .main-nav .navicon::after {
-    background: #F8E55A !important; /* Fixes hamburger menu lines */
-    color: #F8E55A !important;
+  /* Fix the hamburger menu icon lines */
+  .greedy-nav .main-nav .navicon,
+  .greedy-nav .main-nav .navicon::before,
+  .greedy-nav .main-nav .navicon::after {
+    background-color: #F8E55A !important;
   }
+}
+
+/* Remove any weird shadows or borders that stay white */
+.masthead {
+  box-shadow: none !important;
+  border-bottom: 1px solid rgba(0,0,0,0.1) !important;
 }
