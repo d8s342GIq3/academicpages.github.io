@@ -19,24 +19,21 @@
             </li>
           {% endfor %}
           <li id="theme-toggle" class="masthead__menu-item persist tail">
-  <a role="button" href="javascript:void(0);" onclick="
+  <a role="button" href="javascript:void(0);" id="theme-toggle" onclick="
     var html = document.documentElement;
     var icon = document.getElementById('theme-icon');
-    // Check if we are currently in LIGHT mode
     if (html.getAttribute('data-theme') === 'light') {
-      // If yes, remove the light attribute to go back to the PURPLE default
       html.removeAttribute('data-theme');
       localStorage.setItem('theme', 'dark');
-      icon.classList.replace('fa-sun', 'fa-moon');
+      icon.className = 'fa-solid fa-moon';
     } else {
-      // If no, add the light attribute to switch to YELLOW
       html.setAttribute('data-theme', 'light');
       localStorage.setItem('theme', 'light');
-      icon.classList.replace('fa-moon', 'fa-sun');
+      icon.className = 'fa-solid fa-sun';
     }
 ">
-    <i id="theme-icon" class="fa-solid fa-sun" aria-hidden="true" title="toggle theme"></i>
-  </a>
+  <i id="theme-icon" class="fa-solid fa-moon"></i>
+</a>
 </li>
         </ul>
         <ul class="hidden-links hidden"></ul>
