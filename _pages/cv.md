@@ -61,10 +61,12 @@ redirect_from:
 * **Psychology, Health and Medicine Annual Conference**, Belfast, Northern Ireland, *2025*
 * **Positive Health Summit**, Dublin, Ireland, *2025*
 * **European Conference on Positive Psychology**, Innsbruck, Austria, *2024*
+* **York Science Conference**, York, England, 2020
 
 ### Poster Presentations
+* **Royal College of Surgeons in Ireland (RCSI) Research Day**, *2025*
 * **Positive Health Summit**, Dublin, Ireland, *2025*
-* **Royal College of Surgeons in Ireland (RCSI) Research Day**, *2024 & 2025*
+* **Royal College of Surgeons in Ireland (RCSI) Research Day**, *2024*
 * **European Conference on Positive Psychology**, Innsbruck, Austria, *2024*
 
 ## Public Outreach & Engagement
