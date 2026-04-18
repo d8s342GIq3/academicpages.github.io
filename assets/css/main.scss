@@ -42,55 +42,77 @@
     "vendor/font-awesome/brands"
 ;
 
-/* --- Custom Color Scheme --- */
+/* --- FULL CUSTOM COLOR OVERRIDE --- */
 
-/* 1. LIGHT MODE (System setting: Light) */
-/* Background: #F8E55A (Yellow) | Text: #332941 (Purple) */
+/* 1. LIGHT MODE (Default) */
 :root {
-  --bg-color: #F8E55A;
-  --text-color: #332941;
+  --bg-color: #F8E55A;   /* Yellow background */
+  --text-color: #332941; /* Dark Purple text */
 }
 
-body {
+/* Apply background and text to main containers */
+body, 
+.masthead, 
+.page__footer, 
+.sidebar,
+.initial-content {
   background-color: var(--bg-color) !important;
   color: var(--text-color) !important;
 }
 
-/* Force headers and navigation to stay Purple in light mode */
+/* Force consistency for navigation and headers in Light Mode */
 h1, h2, h3, h4, 
 .page__title, 
 .archive__item-title, 
 .sidebar .profile__name,
 .greedy-nav a,
-.nav__items a {
+.nav__items a,
+.nav__list-item a,
+.footer__links a {
   color: #332941 !important;
 }
 
-/* 2. DARK MODE (System setting: Dark) */
-/* Background: #332941 (Purple) | Text: #F8E55A (Yellow) */
+/* Top bar border color */
+.masthead {
+  border-bottom: 1px solid rgba(51, 41, 65, 0.2) !important;
+}
+
+/* 2. DARK MODE (Automatic System Toggle) */
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg-color: #332941;
-    --text-color: #F8E55A;
+    --bg-color: #332941;   /* Dark Purple background */
+    --text-color: #F8E55A; /* Yellow text */
   }
 
-  body {
+  body, 
+  .masthead, 
+  .page__footer, 
+  .sidebar,
+  .initial-content {
     background-color: var(--bg-color) !important;
     color: var(--text-color) !important;
   }
 
-  /* Force headers and navigation to stay Yellow in dark mode */
-  h1, h2, h3, h4,
+  /* Force consistency for navigation and headers in Dark Mode */
+  h1, h2, h3, h4, 
   .page__title, 
   .archive__item-title, 
   .sidebar .profile__name,
   .greedy-nav a,
-  .nav__items a {
+  .nav__items a,
+  .nav__list-item a,
+  .footer__links a {
     color: #F8E55A !important;
   }
-  
-  /* Make sidebar background transparent so it doesn't clash */
-  .sidebar {
-    background-color: transparent !important;
+
+  /* Top bar border color for Dark Mode */
+  .masthead {
+    border-bottom: 1px solid rgba(248, 229, 90, 0.2) !important;
+  }
+
+  /* Fix for the social icons and author bio area */
+  .author__urls-wrapper button, 
+  .author__urls-wrapper a {
+    color: #F8E55A !important;
   }
 }
