@@ -4,12 +4,27 @@
 {% include comments-providers/scripts.html %}
 
 <script>
-  // This part just makes sure the theme stays dark when you change pages
-  if (localStorage.getItem("theme") === "dark") {
-    document.documentElement.setAttribute("data-theme", "dark");
+  (function() {
+    // 1. THEME PERSISTENCE
+    if (localStorage.getItem("theme") === "dark") {
+      document.documentElement.setAttribute("data-theme", "dark");
+    }
+
     window.addEventListener("DOMContentLoaded", function() {
+      // 2. ICON SYNC
       var icon = document.getElementById("theme-icon");
-      if (icon) icon.classList.replace("fa-sun", "fa-moon");
+      if (localStorage.getItem("theme") === "dark" && icon) {
+        icon.classList.replace("fa-sun", "fa-moon");
+      }
+
+      // 3. EXTERNAL LINKS "SET AND FORGET"
+      // This finds all links and adds target="_blank" if they leave your site
+      document.querySelectorAll('a').forEach(function(link) {
+        if (link.hostname && link.hostname !== window.location.hostname) {
+          link.setAttribute('target', '_blank');
+          link.setAttribute('rel', 'noopener noreferrer');
+        }
+      });
     });
-  }
+  })();
 </script>
