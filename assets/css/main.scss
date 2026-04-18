@@ -105,3 +105,21 @@ h3,
   box-shadow: none !important;
   border-bottom: 2px solid rgba(0,0,0,0.05) !important;
 }
+
+/* Hide the Hamburger menu button entirely */
+.greedy-nav button {
+  display: none !important;
+}
+
+/* Ensure links stay visible even on smaller screens */
+.greedy-nav .visible-links {
+  display: flex !important;
+  flex-wrap: wrap;
+}
+
+/* Optional: Center the menu if it looks cramped on mobile */
+@media (max-width: 768px) {
+  .masthead__menu ul {
+    justify-content: center;
+  }
+}
