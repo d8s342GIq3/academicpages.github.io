@@ -9,39 +9,21 @@ redirect_from:
 
 {% include base_path %}
 
-Education
+EDUCATION
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+* PhD Candidate, Centre for Positive Health Sciences, Royal College of Surgeons in Ireland, 2025 – Present
+* MSci Psychology: Neuroscience and Neuroimaging (First Class Honours), University of York, 2019 – 2023
 
-Work experience
+RESEARCH EXPERIENCE
 ======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+* Research Assistant, Royal College of Surgeons in Ireland, Dublin, Ireland (2023 - Present)
+  * Forest4Youth (€5 500 000 funded by Interreg North-West Europe, European Union, 2025 - 2028)
+  * PsyTales (€250 000 funded by Erasmus+ KA220, European Union, 2024 - 2026)
+  * VNiC-Health (€300 000 funded by Research Ireland, 2023 - 2025)
+* Research Assistant, University of York, York, England (2020 - 2022)
+  * Research areas: face perception, language, eye-tracking, meaning
 
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
-
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-  
-Skills
-======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
-
-Publications
+PUBLICATIONS
 ======
   <ul>{% for post in site.publications reversed %}
     {% include archive-single-cv.html %}
@@ -58,6 +40,15 @@ Teaching
   <ul>{% for post in site.teaching reversed %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
+
+Skills
+======
+* Skill 1
+* Skill 2
+  * Sub-skill 2.1
+  * Sub-skill 2.2
+  * Sub-skill 2.3
+* Skill 3
   
 Service and leadership
 ======
