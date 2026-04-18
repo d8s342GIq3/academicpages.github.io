@@ -50,9 +50,10 @@
   --text-color: #332941; /* Dark Purple text */
 }
 
-/* Apply background and text to main containers */
+/* Apply background to the entire body and all header containers */
 body, 
 .masthead, 
+.masthead__inner-wrap, 
 .page__footer, 
 .sidebar,
 .initial-content {
@@ -63,6 +64,7 @@ body,
 /* Force consistency for navigation and headers in Light Mode */
 h1, h2, h3, h4, 
 .page__title, 
+.site-title,
 .archive__item-title, 
 .sidebar .profile__name,
 .greedy-nav a,
@@ -72,7 +74,7 @@ h1, h2, h3, h4,
   color: #332941 !important;
 }
 
-/* Top bar border color */
+/* Nav bar line decoration */
 .masthead {
   border-bottom: 1px solid rgba(51, 41, 65, 0.2) !important;
 }
@@ -86,6 +88,7 @@ h1, h2, h3, h4,
 
   body, 
   .masthead, 
+  .masthead__inner-wrap,
   .page__footer, 
   .sidebar,
   .initial-content {
@@ -96,6 +99,7 @@ h1, h2, h3, h4,
   /* Force consistency for navigation and headers in Dark Mode */
   h1, h2, h3, h4, 
   .page__title, 
+  .site-title,
   .archive__item-title, 
   .sidebar .profile__name,
   .greedy-nav a,
@@ -105,14 +109,18 @@ h1, h2, h3, h4,
     color: #F8E55A !important;
   }
 
-  /* Top bar border color for Dark Mode */
+  /* Nav bar line for Dark Mode */
   .masthead {
     border-bottom: 1px solid rgba(248, 229, 90, 0.2) !important;
   }
 
-  /* Fix for the social icons and author bio area */
+  /* Fix for social icons and hamburger menu icon */
   .author__urls-wrapper button, 
-  .author__urls-wrapper a {
+  .author__urls-wrapper a,
+  .main-nav .navicon,
+  .main-nav .navicon::before,
+  .main-nav .navicon::after {
+    background: #F8E55A !important; /* Fixes hamburger menu lines */
     color: #F8E55A !important;
   }
 }
