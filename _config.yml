@@ -23,10 +23,10 @@ repository               : "d8s342GIq3/academicpages.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "Headshot.jpeg"
   name             : "Braňo Kaleta"
   pronouns         : "he/him"
-  bio              : "Psychology Researcher"
+  bio              : "PhD Scholar and Research Assistant"
   location         : "Dublin, Ireland"
   employer         : "Royal College of Surgeons in Ireland"
   uri              : # URL
@@ -35,20 +35,20 @@ author:
   # Academic websites
   academia         : # URL
   arxiv            : # URL - Update with the correct link to your profile
-  googlescholar    : "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
+  googlescholar    : "https://scholar.google.com/citations?user=pb6W9JQAAAAJ&hl=en"
   inspire-hep      : # URL
   impactstory      : # URL
   orcid            : "https://orcid.org/0009-0000-5894-8070"
   semantic         : # URL
   ssrn             : # URL
-  pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
+  pubmed           : # URL
   researchgate     : "https://www.researchgate.net/profile/Branislav-Kaleta"
   scopus           : # URL
   zotero           : # URL   
 
   # Social media
   artstation       : # Username
-  bluesky          : "bsky.app" # Replace this with you Bluesky username
+  bluesky          : # Username
   facebook         : # Username
   flickr           : # Username
   foursquare       : # Username
