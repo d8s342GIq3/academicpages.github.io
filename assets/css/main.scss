@@ -174,3 +174,7 @@ h3,
   background: transparent !important;
   opacity: 0.8;
 }
+
+#main {
+  min-height: calc(100vh - 200px) !important;
+}
