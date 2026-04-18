@@ -22,16 +22,19 @@
   <a role="button" href="javascript:void(0);" onclick="
     var html = document.documentElement;
     var icon = document.getElementById('theme-icon');
-    if (html.getAttribute('data-theme') === 'dark') {
+    // Check if we are currently in LIGHT mode
+    if (html.getAttribute('data-theme') === 'light') {
+      // If yes, remove the light attribute to go back to the PURPLE default
       html.removeAttribute('data-theme');
-      localStorage.setItem('theme', 'light');
-      icon.classList.replace('fa-moon', 'fa-sun');
-    } else {
-      html.setAttribute('data-theme', 'dark');
       localStorage.setItem('theme', 'dark');
       icon.classList.replace('fa-sun', 'fa-moon');
+    } else {
+      // If no, add the light attribute to switch to YELLOW
+      html.setAttribute('data-theme', 'light');
+      localStorage.setItem('theme', 'light');
+      icon.classList.replace('fa-moon', 'fa-sun');
     }
-  ">
+">
     <i id="theme-icon" class="fa-solid fa-sun" aria-hidden="true" title="toggle theme"></i>
   </a>
 </li>
