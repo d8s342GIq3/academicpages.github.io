@@ -5,7 +5,7 @@
 
 <script>
   (function() {
-    // 1. THEME PERSISTENCE
+    // 1. THEME PERSISTENCE (Runs immediately)
     if (localStorage.getItem("theme") === "dark") {
       document.documentElement.setAttribute("data-theme", "dark");
     }
@@ -17,14 +17,18 @@
         icon.classList.replace("fa-sun", "fa-moon");
       }
 
-      // 3. EXTERNAL LINKS "SET AND FORGET"
-      // This finds all links and adds target="_blank" if they leave your site
-      document.querySelectorAll('a').forEach(function(link) {
-        if (link.hostname && link.hostname !== window.location.hostname) {
-          link.setAttribute('target', '_blank');
-          link.setAttribute('rel', 'noopener noreferrer');
+      // 3. THE "FORCE" LINK HANDLER
+      // We listen to the whole document for clicks
+      document.addEventListener('click', function(e) {
+        // Find the link being clicked (even if it's inside another element)
+        var target = e.target.closest('a');
+        
+        if (target && target.hostname && target.hostname !== window.location.hostname) {
+          // If the link is external, force target="_blank"
+          target.setAttribute('target', '_blank');
+          target.setAttribute('rel', 'noopener noreferrer');
         }
-      });
+      }, true); // The 'true' ensures we catch the click before other scripts stop it
     });
   })();
 </script>
