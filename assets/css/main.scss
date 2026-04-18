@@ -42,57 +42,61 @@
     "vendor/font-awesome/brands"
 ;
 
-/* --- THE CLEAN SWEEP OVERRIDE --- */
+/* --- ULTIMATE COLOR OVERRIDE --- */
 
-/* 1. UNIVERSAL (Apply to everything) */
-#main, 
-.masthead, 
-.masthead__inner-wrap, 
-.page__footer,
-.initial-content,
-body {
-  background-color: var(--bg-color) !important;
-  color: var(--text-color) !important;
-}
-
-/* 2. LIGHT MODE */
+/* 1. LIGHT MODE (Default) */
 :root {
   --bg-color: #F8E55A;   /* Yellow */
   --text-color: #332941; /* Purple */
 }
 
-/* Light Mode Links & Titles */
-a, .site-title, .page__title, .sidebar .profile__name {
-  color: #332941 !important;
+/* Force every major container to use the background variable */
+body, 
+.masthead, 
+.masthead__inner-wrap, 
+.greedy-nav,
+#main,
+.page__footer {
+  background-color: var(--bg-color) !important;
 }
 
-/* 3. DARK MODE overrides */
+/* General Text & Link Colors for Light Mode */
+body, p, li, h1, h2, h3, .site-title, .greedy-nav a {
+  color: var(--text-color) !important;
+}
+
+/* 2. DARK MODE OVERRIDES */
 @media (prefers-color-scheme: dark) {
   :root {
     --bg-color: #332941;   /* Purple */
     --text-color: #F8E55A; /* Yellow */
   }
 
-  /* Dark Mode Links & Titles */
-  a, .site-title, .page__title, .sidebar .profile__name, .nav__items a {
-    color: #F8E55A !important;
-  }
-
-  /* Keep the sidebar background transparent so it doesn't "box" in */
+  /* Fix for sidebar specifically - keeps layout but changes text */
   .sidebar {
     background-color: transparent !important;
   }
+  
+  .sidebar .profile__name, 
+  .sidebar .author__bio,
+  .sidebar a {
+    color: var(--text-color) !important;
+  }
 
-  /* Fix the hamburger menu icon lines */
-  .greedy-nav .main-nav .navicon,
-  .greedy-nav .main-nav .navicon::before,
-  .greedy-nav .main-nav .navicon::after {
-    background-color: #F8E55A !important;
+  /* Fix for the "hamburger" menu icon on mobile */
+  .greedy-nav .navicon,
+  .greedy-nav .navicon::before,
+  .greedy-nav .navicon::after {
+    background: var(--text-color) !important;
   }
 }
 
-/* Remove any weird shadows or borders that stay white */
+/* 3. CLEANUP (Removes the white shadow/border) */
 .masthead {
   box-shadow: none !important;
-  border-bottom: 1px solid rgba(0,0,0,0.1) !important;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.greedy-nav .visible-links li.masthead__menu-item--lg a {
+  font-weight: bold;
 }
