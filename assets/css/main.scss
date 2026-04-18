@@ -41,3 +41,56 @@
     "vendor/font-awesome/solid",
     "vendor/font-awesome/brands"
 ;
+
+/* --- Custom Color Scheme --- */
+
+/* 1. LIGHT MODE (System setting: Light) */
+/* Background: #F8E55A (Yellow) | Text: #332941 (Purple) */
+:root {
+  --bg-color: #F8E55A;
+  --text-color: #332941;
+}
+
+body {
+  background-color: var(--bg-color) !important;
+  color: var(--text-color) !important;
+}
+
+/* Force headers and navigation to stay Purple in light mode */
+h1, h2, h3, h4, 
+.page__title, 
+.archive__item-title, 
+.sidebar .profile__name,
+.greedy-nav a,
+.nav__items a {
+  color: #332941 !important;
+}
+
+/* 2. DARK MODE (System setting: Dark) */
+/* Background: #332941 (Purple) | Text: #F8E55A (Yellow) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #332941;
+    --text-color: #F8E55A;
+  }
+
+  body {
+    background-color: var(--bg-color) !important;
+    color: var(--text-color) !important;
+  }
+
+  /* Force headers and navigation to stay Yellow in dark mode */
+  h1, h2, h3, h4,
+  .page__title, 
+  .archive__item-title, 
+  .sidebar .profile__name,
+  .greedy-nav a,
+  .nav__items a {
+    color: #F8E55A !important;
+  }
+  
+  /* Make sidebar background transparent so it doesn't clash */
+  .sidebar {
+    background-color: transparent !important;
+  }
+}
