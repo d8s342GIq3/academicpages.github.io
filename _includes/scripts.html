@@ -5,43 +5,48 @@
 {% include comments-providers/scripts.html %}
 
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const btn = document.getElementById("theme-toggle");
-    const icon = document.getElementById("theme-icon");
+  (function() {
     const html = document.documentElement;
-    const currentTheme = localStorage.getItem("theme");
-
-    // 1. Apply saved theme on load
-    if (currentTheme === "dark") {
+    
+    // 1. Immediate Apply (Prevents "flash" of light mode on dark pages)
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
       html.setAttribute("data-theme", "dark");
-      if (icon) {
+    }
+
+    window.addEventListener('DOMContentLoaded', (event) => {
+      const btn = document.getElementById("theme-toggle");
+      const icon = document.getElementById("theme-icon");
+
+      // 2. Set correct initial icon
+      if (savedTheme === "dark" && icon) {
         icon.classList.remove("fa-sun");
         icon.classList.add("fa-moon");
       }
-    }
 
-    // 2. Handle the click
-    if (btn) {
-      btn.addEventListener("click", function(e) {
-        e.preventDefault();
-        let theme = html.getAttribute("data-theme");
-        
-        if (theme === "dark") {
-          html.removeAttribute("data-theme");
-          localStorage.setItem("theme", "light");
-          if (icon) {
-            icon.classList.remove("fa-moon");
-            icon.classList.add("fa-sun");
+      // 3. The Click Logic
+      if (btn) {
+        btn.addEventListener("click", function(e) {
+          e.preventDefault();
+          let currentTheme = html.getAttribute("data-theme");
+          
+          if (currentTheme === "dark") {
+            html.removeAttribute("data-theme");
+            localStorage.setItem("theme", "light");
+            if (icon) {
+              icon.classList.remove("fa-moon");
+              icon.classList.add("fa-sun");
+            }
+          } else {
+            html.setAttribute("data-theme", "dark");
+            localStorage.setItem("theme", "dark");
+            if (icon) {
+              icon.classList.remove("fa-sun");
+              icon.classList.add("fa-moon");
+            }
           }
-        } else {
-          html.setAttribute("data-theme", "dark");
-          localStorage.setItem("theme", "dark");
-          if (icon) {
-            icon.classList.remove("fa-sun");
-            icon.classList.add("fa-moon");
-          }
-        }
-      });
-    }
-  });
+        });
+      }
+    });
+  })();
 </script>
