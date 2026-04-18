@@ -151,24 +151,26 @@ h3,
   pointer-events: none;
 }
 
-/* Align the theme toggle with the navigation text */
+/* Precise alignment for the theme toggle */
 #theme-toggle {
-  display: flex !important;
-  align-items: center !important;
-  padding: 0 10px !important; /* Adjust horizontal spacing */
+  display: inline-block !important;
+  vertical-align: middle !important;
+  padding: 12px 10px 0 10px !important; /* The 12px nudges it down from the top */
   margin: 0 !important;
-  line-height: inherit !important;
-  border: none !important; /* Removes that orange/white box border */
-  height: 100% !important;
+  border: none !important;
   text-decoration: none !important;
+  cursor: pointer !important;
 }
 
 #theme-icon {
-  font-size: 0.9em !important; /* Matches the text size of the menu links */
+  font-size: 0.85em !important; /* Slightly smaller to match text height */
+  color: var(--text-color) !important;
+  display: inline-block !important;
   vertical-align: middle !important;
 }
 
-/* Optional: Removes the focus outline when clicked */
-#theme-toggle:focus {
-  outline: none !important;
+/* Remove any hover effects that might shift it */
+#theme-toggle:hover {
+  background: transparent !important;
+  opacity: 0.8;
 }
