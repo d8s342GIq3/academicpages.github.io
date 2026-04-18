@@ -1,35 +1,37 @@
 <script src="{{ base_path }}/assets/js/main.min.js"></script>
 
 {% include analytics.html %}
-
 {% include comments-providers/scripts.html %}
 
 <script>
   (function() {
-    
-    // 1. THEME PERSISTENCE (Runs immediately)
-    if (localStorage.getItem("theme") === "dark") {
-      document.documentElement.setAttribute("data-theme", "dark");
+    // 1. THEME PERSISTENCE
+    // Since Purple is default, we only care if the user previously chose "light"
+    if (localStorage.getItem("theme") === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
     }
+
     window.addEventListener("DOMContentLoaded", function() {
-      
       // 2. ICON SYNC
       var icon = document.getElementById("theme-icon");
-      if (localStorage.getItem("theme") === "dark" && icon) {
-        icon.classList.replace("fa-sun", "fa-moon");
+      if (icon) {
+        // If the theme is currently light, show the sun
+        if (localStorage.getItem("theme") === "light") {
+          icon.classList.replace("fa-moon", "fa-sun");
+        } else {
+          // Otherwise, ensure it's a moon (for purple mode)
+          icon.classList.replace("fa-sun", "fa-moon");
+        }
       }
 
       // 3. THE "FORCE" LINK HANDLER
-      // We listen to the whole document for clicks
       document.addEventListener('click', function(e) {
-        // Find the link being clicked (even if it's inside another element)
         var target = e.target.closest('a');
         if (target && target.hostname && target.hostname !== window.location.hostname) {
-          // If the link is external, force target="_blank"
           target.setAttribute('target', '_blank');
           target.setAttribute('rel', 'noopener noreferrer');
         }
-      }, true); // The 'true' ensures we catch the click before other scripts stop it
+      }, true);
     });
   })();
 </script>
