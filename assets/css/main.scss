@@ -150,3 +150,25 @@ h3,
 #theme-icon {
   pointer-events: none;
 }
+
+/* Align the theme toggle with the navigation text */
+#theme-toggle {
+  display: flex !important;
+  align-items: center !important;
+  padding: 0 10px !important; /* Adjust horizontal spacing */
+  margin: 0 !important;
+  line-height: inherit !important;
+  border: none !important; /* Removes that orange/white box border */
+  height: 100% !important;
+  text-decoration: none !important;
+}
+
+#theme-icon {
+  font-size: 0.9em !important; /* Matches the text size of the menu links */
+  vertical-align: middle !important;
+}
+
+/* Optional: Removes the focus outline when clicked */
+#theme-toggle:focus {
+  outline: none !important;
+}
