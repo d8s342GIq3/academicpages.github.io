@@ -1,52 +1,39 @@
 <script type="module" src="{{ base_path }}/assets/js/main.min.js"></script>
 
 {% include analytics.html %}
-
 {% include comments-providers/scripts.html %}
 
 <script>
   (function() {
     const html = document.documentElement;
     
-    // 1. Immediate Apply (Prevents "flash" of light mode on dark pages)
+    // 1. Apply theme immediately from storage
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme === "dark") {
       html.setAttribute("data-theme", "dark");
     }
 
-    window.addEventListener('DOMContentLoaded', (event) => {
+    // 2. Wait for the button to exist in the browser
+    const checkExist = setInterval(function() {
       const btn = document.getElementById("theme-toggle");
-      const icon = document.getElementById("theme-icon");
-
-      // 2. Set correct initial icon
-      if (savedTheme === "dark" && icon) {
-        icon.classList.remove("fa-sun");
-        icon.classList.add("fa-moon");
-      }
-
-      // 3. The Click Logic
       if (btn) {
+        clearInterval(checkExist);
+        
         btn.addEventListener("click", function(e) {
           e.preventDefault();
-          let currentTheme = html.getAttribute("data-theme");
+          const currentTheme = html.getAttribute("data-theme");
           
           if (currentTheme === "dark") {
             html.removeAttribute("data-theme");
             localStorage.setItem("theme", "light");
-            if (icon) {
-              icon.classList.remove("fa-moon");
-              icon.classList.add("fa-sun");
-            }
+            console.log("Switching to Light Mode");
           } else {
             html.setAttribute("data-theme", "dark");
             localStorage.setItem("theme", "dark");
-            if (icon) {
-              icon.classList.remove("fa-sun");
-              icon.classList.add("fa-moon");
-            }
+            console.log("Switching to Dark Mode");
           }
         });
       }
-    });
+    }, 100); // Check every 100ms
   })();
 </script>
