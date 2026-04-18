@@ -135,3 +135,17 @@ h3,
 #theme-icon {
   pointer-events: none; /* This makes the click pass THROUGH the icon to the button */
 }
+
+/* Ensure the toggle is on top of everything and shows the pointer cursor */
+#theme-toggle, 
+.masthead__menu-item--lg,
+[title="toggle theme"] {
+  cursor: pointer !important;
+  z-index: 9999 !important;
+  position: relative;
+}
+
+/* Prevent the icon from blocking the click */
+#theme-icon {
+  pointer-events: none;
+}
