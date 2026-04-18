@@ -54,10 +54,12 @@ redirect_from:
 
 ### Oral Presentations
 * **European Conference on Positive Psychology**, Dublin, Ireland, *2026*
+* **Psychology, Health and Medicine Annual Conference**, Dublin, Ireland, *2026*
 * **IV Global Summit Science, Nature and Health**, online, *2026*
-* **Positive Health Summit**, Dublin, Ireland, *2025 & 2026*
+* **Positive Health Summit**, Dublin, Ireland, *2026*
 * **Positive Psychology in a Complex World**, Lübeck, Germany, *2025*
 * **Psychology, Health and Medicine Annual Conference**, Belfast, Northern Ireland, *2025*
+* **Positive Health Summit**, Dublin, Ireland, *2025*
 * **European Conference on Positive Psychology**, Innsbruck, Austria, *2024*
 
 ### Poster Presentations
