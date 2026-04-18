@@ -42,59 +42,66 @@
     "vendor/font-awesome/brands"
 ;
 
-/* --- THEME TOGGLE OVERRIDE --- */
+/* --- THEME TOGGLE OVERRIDE v2 --- */
 
-/* LIGHT MODE */
+/* 1. DEFINE COLORS */
 :root {
   --bg-color: #F8E55A;
   --text-color: #332941;
 }
 
-/* DARK MODE */
 [data-theme="dark"] {
   --bg-color: #332941;
   --text-color: #F8E55A;
 }
 
-/* Target every container to ensure no white boxes remain */
-body, 
-#main,
+/* 2. THE NUCLEAR FIX: Force everything in the header to be transparent */
 .masthead, 
-.masthead__inner-wrap, 
+.masthead *, 
 .greedy-nav, 
-.greedy-nav ul,
-.greedy-nav .visible-links, 
-.greedy-nav .hidden-links,
-.greedy-nav button,
-.page__footer,
-.initial-content {
+.greedy-nav *, 
+.visible-links, 
+.visible-links * {
+  background-color: transparent !important;
+}
+
+/* 3. SET THE MAIN BACKGROUNDS */
+body, 
+#main, 
+.page__footer, 
+.initial-content,
+.masthead__inner-wrap {
   background-color: var(--bg-color) !important;
   color: var(--text-color) !important;
 }
 
-/* Fix for links and navigation text */
-a, .site-title, .greedy-nav a, .nav__items a, .sidebar .profile__name, .sidebar .author__bio {
+/* 4. TEXT & LINKS */
+a, 
+p, 
+li, 
+h1, 
+h2, 
+h3, 
+.site-title, 
+.greedy-nav a, 
+.sidebar .profile__name, 
+.sidebar .author__bio {
   color: var(--text-color) !important;
 }
 
-/* Sidebar structure fix - makes it blend into the background */
+/* 5. SIDEBAR FIX */
 .sidebar {
   background-color: transparent !important;
   border: none !important;
 }
 
-/* Hamburger Menu Icon Fix */
+/* 6. ICON & HAMBURGER FIX */
 .navicon, .navicon::before, .navicon::after {
   background-color: var(--text-color) !important;
 }
 
-.greedy-nav button {
-  background-color: transparent !important;
-  border: none !important;
-}
-
-/* Remove shadows/borders that clash with custom colors */
+/* Remove shadows and clashing borders */
 .masthead {
   box-shadow: none !important;
-  border-bottom: 1px solid rgba(0,0,0,0.1) !important;
+  border-bottom: 2px solid rgba(0,0,0,0.05) !important;
 }
