@@ -46,6 +46,25 @@ redirect_from:
 ---
 * **Scientific Committee**, [European Conference on Positive Psychology 2026](https://www.ecpp2026.com/), Dublin, Ireland
 
+## Conference Presentations
+---
+
+### Invited Talks
+* **Panellist on Environmental Education**, World Conference on Forests and Parks for Public Health, Luxembourg, *2025*
+
+### Oral Presentations
+* **European Conference on Positive Psychology**, Dublin, Ireland, *2026*
+* **IV Global Summit Science, Nature and Health**, online, *2026*
+* **Positive Health Summit**, Dublin, Ireland, *2025 & 2026*
+* **Positive Psychology in a Complex World**, Lübeck, Germany, *2025*
+* **Psychology, Health and Medicine Annual Conference**, Belfast, Northern Ireland, *2025*
+* **European Conference on Positive Psychology**, Innsbruck, Austria, *2024*
+
+### Poster Presentations
+* **Positive Health Summit**, Dublin, Ireland, *2025*
+* **Royal College of Surgeons in Ireland (RCSI) Research Day**, *2024 & 2025*
+* **European Conference on Positive Psychology**, Innsbruck, Austria, *2024*
+
 ## Public Outreach & Engagement
 ---
 * **Let's Talk Science Festival**, Rediscovery Centre, Dublin, Ireland, *2024*
