@@ -44,15 +44,16 @@
 
 /* --- THEME TOGGLE OVERRIDE v2 --- */
 
-/* 1. DEFINE COLORS */
+/* 1. DEFINE COLORS (Dark is now Default) */
 :root {
-  --bg-color: #F8E55A;
-  --text-color: #332941;
+  --bg-color: #332941;   /* Purple */
+  --text-color: #F8E55A; /* Yellow */
 }
 
-[data-theme="dark"] {
-  --bg-color: #332941;
-  --text-color: #F8E55A;
+/* If the user clicks the button to go to Light mode */
+[data-theme="light"] {
+  --bg-color: #F8E55A;   /* Yellow */
+  --text-color: #332941; /* Purple */
 }
 
 /* 2. THE NUCLEAR FIX: Force everything in the header to be transparent */
