@@ -6,50 +6,49 @@
 <script type="text/javascript">
 (function() {
     const html = document.documentElement;
-    const savedTheme = localStorage.getItem("theme");
     
-    // Apply theme immediately
+    // 1. Set the theme immediately based on localStorage
+    const savedTheme = localStorage.getItem("theme");
     if (savedTheme === "dark") {
         html.setAttribute("data-theme", "dark");
     }
 
-    function attachToggle() {
-        const btn = document.getElementById("theme-toggle");
-        const icon = document.getElementById("theme-icon");
-
+    // 2. Use a Global Event Listener (Delegation)
+    // This works even if the navigation menu re-renders or changes
+    document.addEventListener("click", function(e) {
+        // Find if the clicked element (or its parent) is our toggle button
+        const btn = e.target.closest("#theme-toggle");
+        
         if (btn) {
-            // Set correct icon on load
-            if (savedTheme === "dark" && icon) {
-                icon.classList.remove("fa-sun");
-                icon.classList.add("fa-moon");
-            }
-
-            btn.addEventListener("click", function(e) {
-                e.preventDefault();
-                const currentTheme = html.getAttribute("data-theme");
-                if (currentTheme === "dark") {
-                    html.removeAttribute("data-theme");
-                    localStorage.setItem("theme", "light");
-                    if (icon) {
-                        icon.classList.remove("fa-moon");
-                        icon.classList.add("fa-sun");
-                    }
-                } else {
-                    html.setAttribute("data-theme", "dark");
-                    localStorage.setItem("theme", "dark");
-                    if (icon) {
-                        icon.classList.remove("fa-sun");
-                        icon.classList.add("fa-moon");
-                    }
+            e.preventDefault();
+            const icon = document.getElementById("theme-icon");
+            const isDark = html.getAttribute("data-theme") === "dark";
+            
+            if (isDark) {
+                html.removeAttribute("data-theme");
+                localStorage.setItem("theme", "light");
+                if (icon) {
+                    icon.classList.remove("fa-moon");
+                    icon.classList.add("fa-sun");
                 }
-            });
-            console.log("Theme toggle attached successfully.");
-        } else {
-            // Try again in case of slow loading
-            setTimeout(attachToggle, 200);
+            } else {
+                html.setAttribute("data-theme", "dark");
+                localStorage.setItem("theme", "dark");
+                if (icon) {
+                    icon.classList.remove("fa-sun");
+                    icon.classList.add("fa-moon");
+                }
+            }
         }
-    }
+    });
 
-    attachToggle();
+    // 3. Fix the icon on initial page load
+    window.addEventListener("DOMContentLoaded", function() {
+        const icon = document.getElementById("theme-icon");
+        if (localStorage.getItem("theme") === "dark" && icon) {
+            icon.classList.remove("fa-sun");
+            icon.classList.add("fa-moon");
+        }
+    });
 })();
 </script>
