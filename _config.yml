@@ -10,6 +10,7 @@
 locale                   : "en-US"
 site_theme               : "default" # The available themes options are "default", "air", "sunrise", "mint", "dirt" and "contrast"
 title                    : "Braňo Kaleta"
+logo                     : "assets/images/favicon-512x512.png"
 title_separator          : "-"
 name                     : &name "Braňo Kaleta"
 description              : &description "Personal academic website of Braňo Kaleta, Psychology Researcher at RCSI."   # Update this with a general description of your site, this is the default if not overridden by a page
