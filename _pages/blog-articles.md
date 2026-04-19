@@ -7,7 +7,12 @@ author_profile: true
 
 {% include base_path %}
 
-{% assign sorted_blogs = site.data.external_blogs | sort: 'date' | reversed %}
+{% comment %} 
+We assign the data to a variable, then sort by date, then reverse it.
+{% endcomment %}
+
+{% assign my_blogs = site.data.external_blogs %}
+{% assign sorted_blogs = my_blogs | sort: 'date' | reversed %}
 
 {% for post in sorted_blogs %}
   <div class="list__item">
