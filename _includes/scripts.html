@@ -4,27 +4,32 @@
 {% include comments-providers/scripts.html %}
 
 <script>
+  // 1. THE "FORCE" LINK HANDLER (Runs immediately)
+  function tagLinks() {
+    var links = document.querySelectorAll('a[href^="http"]');
+    for (var i = 0; i < links.length; i++) {
+      if (!links[i].href.includes(window.location.hostname)) {
+        links[i].target = "_blank";
+        links[i].rel = "noopener noreferrer";
+      }
+    }
+  }
+
+  // Run it every 500ms for the first 3 seconds to catch everything
+  var count = 0;
+  var interval = setInterval(function() {
+    tagLinks();
+    if (++count > 6) clearInterval(interval);
+  }, 500);
+
   (function() {
-    // 1. THEME PERSISTENCE
+    // 2. THEME PERSISTENCE
     if (localStorage.getItem("theme") === "light") {
       document.documentElement.setAttribute("data-theme", "light");
     }
 
-    function tagExternalLinks() {
-      var links = document.getElementsByTagName('a');
-      for (var i = 0; i < links.length; i++) {
-        var href = links[i].getAttribute('href');
-        // Only target external http links that don't already have target=_blank
-        if (href && href.startsWith('http') && !href.includes(window.location.hostname)) {
-          links[i].setAttribute('target', '_blank');
-          links[i].setAttribute('rel', 'noopener noreferrer');
-        }
-      }
-    }
-
-    // 2. RUN ON LOAD
     window.addEventListener("DOMContentLoaded", function() {
-      // ICON SYNC
+      // 3. ICON SYNC
       var icon = document.getElementById("theme-icon");
       if (icon) {
         if (localStorage.getItem("theme") === "light") {
@@ -33,17 +38,6 @@
           icon.classList.replace("fa-sun", "fa-moon");
         }
       }
-
-      // Initial tag
-      tagExternalLinks();
-      
-      // 3. THE "WATCHER" (Mutation Observer)
-      // This catches links that might load late or via scripts
-      var observer = new MutationObserver(tagExternalLinks);
-      observer.observe(document.body, { childList: true, subtree: true });
     });
-
-    // Final safety check after 2 seconds
-    setTimeout(tagExternalLinks, 2000);
   })();
 </script>
