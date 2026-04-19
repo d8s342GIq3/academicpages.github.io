@@ -226,7 +226,7 @@ collections:
     permalink: /:collection/:path/
   blog_articles:
     output: true
-    permalink: /:collection/:path/
+    permalink: /blog_articles/:path/
 
 
 
