@@ -12,7 +12,7 @@ This sorts by the 'date' field in your .md files
 and puts the newest at the top.
 {% endcomment %}
 
-{% assign sorted_blogs = site.external_blogs | sort: 'date' | reversed %}
+{% assign sorted_blogs = site.blog_articles | sort: 'date' | reversed %}
 
 {% for post in sorted_blogs %}
   <div class="list__item">
