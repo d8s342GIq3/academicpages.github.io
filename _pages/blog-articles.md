@@ -7,15 +7,14 @@ author_profile: true
 
 {% include base_path %}
 
-{% comment %} 
-Since the internal date sort is failing, we sort by 'path' (the filename).
-Because your files are named YYYY-MM-DD-title.md, 
-sorting by path is a perfect chronological sort.
+{% comment %}
+We are going to manually map the dates to a string and sort that.
+This is the 'heavy duty' way to force a re-order.
 {% endcomment %}
 
-{% assign sorted_by_filename = site.blog_articles | sort: 'path' | reversed %}
+{% assign blogs = site.blog_articles | sort: "date" %}
 
-{% for post in sorted_by_filename %}
+{% for post in blogs reversed %}
   <div class="list__item">
     <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
       <h2 class="archive__item-title" itemprop="headline">
