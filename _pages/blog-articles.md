@@ -7,13 +7,15 @@ author_profile: true
 
 {% include base_path %}
 
-{% comment %} 
-We create a variable for the collection and sort it explicitly by date.
+{% comment %}
+This captures the collection, sorts it by date, and reverses it.
+We use the 'site' variable specifically to ensure we are hitting the global collection.
 {% endcomment %}
 
-{% assign posts = site.blog_articles | sort: "date" | reversed %}
+{% assign blog_list = site.blog_articles | sort: 'date' %}
+{% assign reversed_blogs = blog_list | reversed %}
 
-{% for post in posts %}
+{% for post in reversed_blogs %}
   <div class="list__item">
     <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
       <h2 class="archive__item-title" itemprop="headline">
