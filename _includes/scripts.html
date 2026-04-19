@@ -6,7 +6,6 @@
 <script>
   (function() {
     // 1. THEME PERSISTENCE
-    // Since Purple is default, we only care if the user previously chose "light"
     if (localStorage.getItem("theme") === "light") {
       document.documentElement.setAttribute("data-theme", "light");
     }
@@ -15,23 +14,22 @@
       // 2. ICON SYNC
       var icon = document.getElementById("theme-icon");
       if (icon) {
-        // If the theme is currently light, show the sun
         if (localStorage.getItem("theme") === "light") {
           icon.classList.replace("fa-moon", "fa-sun");
         } else {
-          // Otherwise, ensure it's a moon (for purple mode)
           icon.classList.replace("fa-sun", "fa-moon");
         }
       }
 
-      // 3. THE "FORCE" LINK HANDLER
-      document.addEventListener('click', function(e) {
-        var target = e.target.closest('a');
-        if (target && target.hostname && target.hostname !== window.location.hostname) {
-          target.setAttribute('target', '_blank');
-          target.setAttribute('rel', 'noopener noreferrer');
+      // 3. ENHANCED EXTERNAL LINK HANDLER
+      // This finds all links on the page immediately
+      var links = document.getElementsByTagName('a');
+      for (var i = 0; i < links.length; i++) {
+        if (links[i].hostname && links[i].hostname !== window.location.hostname) {
+          links[i].setAttribute('target', '_blank');
+          links[i].setAttribute('rel', 'noopener noreferrer');
         }
-      }, true);
+      }
     });
   })();
 </script>
