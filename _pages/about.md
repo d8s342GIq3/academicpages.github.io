@@ -11,4 +11,4 @@ I am a PhD Candidate and Research Assistant at the Royal College of Surgeons in 
 
 In my PhD I investigate the psychological and physiological benefits of engaging with nature, specifically through activities like forest therapy, stargazing, and cloudspotting. I am interested in how these experiences trigger awe and how they lead to transformation. My work is inspired by humanistic psychology and driven by my belief in human goodness.
 
-Beyond my primary research, my academic interests extend to storytelling, death and mortality awareness, virtues, psychedelics, and many more. Originally from Slovakia and now based in Dublin, I am looking forward to exploring these topics in my career.
+Beyond my primary research, my academic interests extend to storytelling, death and mortality awareness, virtues, psychedelics, and many more. Originally from Slovakia 🇸🇰 and now based in Dublin, I am looking forward to exploring these topics in my career.
