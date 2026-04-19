@@ -8,8 +8,7 @@ author_profile: true
 {% include base_path %}
 
 {% comment %} 
-This sorts by the 'date' field in your .md files 
-and puts the newest at the top.
+Pulling from the site.blog_articles collection 
 {% endcomment %}
 
 {% assign sorted_blogs = site.blog_articles | sort: 'date' | reversed %}
@@ -20,8 +19,7 @@ and puts the newest at the top.
       <h2 class="archive__item-title">
         <a href="{{ post.external_link }}">{{ post.title }}</a>
       </h2>
-      <p>Published on <strong>{{ post.type }}</strong> — {{ post.date | date: "%B %d, %Y" }}</p>
-      {% if post.excerpt %}<p>{{ post.excerpt }}</p>{% endif %}
+      <p>Published — {{ post.date | date: "%B %d, %Y" }}</p>
     </article>
   </div>
 {% endfor %}
