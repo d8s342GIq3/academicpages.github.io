@@ -8,13 +8,12 @@ author_profile: true
 {% include base_path %}
 
 {% comment %} 
-We sort the collection by date. If 'reversed' isn't working, 
-we ensure the date format in your files is YYYY-MM-DD.
+We create a variable for the collection and sort it explicitly by date.
 {% endcomment %}
 
-{% assign sorted_blogs = site.blog_articles | sort: 'date' | reversed %}
+{% assign posts = site.blog_articles | sort: "date" | reversed %}
 
-{% for post in sorted_blogs %}
+{% for post in posts %}
   <div class="list__item">
     <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
       <h2 class="archive__item-title" itemprop="headline">
