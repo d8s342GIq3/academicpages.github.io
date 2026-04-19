@@ -8,15 +8,14 @@ author_profile: true
 {% include base_path %}
 
 {% comment %} 
-Step 1: Get the collection
-Step 2: Sort by date (Oldest to Newest)
-Step 3: Reverse that list (Newest to Oldest)
+Since the internal date sort is failing, we sort by 'path' (the filename).
+Because your files are named YYYY-MM-DD-title.md, 
+sorting by path is a perfect chronological sort.
 {% endcomment %}
 
-{% assign all_blogs = site.blog_articles | sort: 'date' %}
-{% assign newest_first = all_blogs | reversed %}
+{% assign sorted_by_filename = site.blog_articles | sort: 'path' | reversed %}
 
-{% for post in newest_first %}
+{% for post in sorted_by_filename %}
   <div class="list__item">
     <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
       <h2 class="archive__item-title" itemprop="headline">
