@@ -10,10 +10,21 @@
       document.documentElement.setAttribute("data-theme", "light");
     }
 
-    // Use jQuery's ready function for better compatibility with the template
-    $(document).ready(function() {
-      
-      // 2. ICON SYNC
+    function tagExternalLinks() {
+      var links = document.getElementsByTagName('a');
+      for (var i = 0; i < links.length; i++) {
+        var href = links[i].getAttribute('href');
+        // Only target external http links that don't already have target=_blank
+        if (href && href.startsWith('http') && !href.includes(window.location.hostname)) {
+          links[i].setAttribute('target', '_blank');
+          links[i].setAttribute('rel', 'noopener noreferrer');
+        }
+      }
+    }
+
+    // 2. RUN ON LOAD
+    window.addEventListener("DOMContentLoaded", function() {
+      // ICON SYNC
       var icon = document.getElementById("theme-icon");
       if (icon) {
         if (localStorage.getItem("theme") === "light") {
@@ -23,14 +34,16 @@
         }
       }
 
-      // 3. THE "FORCE" LINK HANDLER (jQuery Version)
-      // This targets every link starting with http and adds the attribute
-      $('a[href^="http"]').each(function() {
-        if (this.hostname !== window.location.hostname) {
-          $(this).attr('target', '_blank');
-          $(this).attr('rel', 'noopener noreferrer');
-        }
-      });
+      // Initial tag
+      tagExternalLinks();
+      
+      // 3. THE "WATCHER" (Mutation Observer)
+      // This catches links that might load late or via scripts
+      var observer = new MutationObserver(tagExternalLinks);
+      observer.observe(document.body, { childList: true, subtree: true });
     });
+
+    // Final safety check after 2 seconds
+    setTimeout(tagExternalLinks, 2000);
   })();
 </script>
