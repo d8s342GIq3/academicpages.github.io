@@ -7,15 +7,16 @@ author_profile: true
 
 {% include base_path %}
 
-{% comment %}
-This captures the collection, sorts it by date, and reverses it.
-We use the 'site' variable specifically to ensure we are hitting the global collection.
+{% comment %} 
+Step 1: Get the collection
+Step 2: Sort by date (Oldest to Newest)
+Step 3: Reverse that list (Newest to Oldest)
 {% endcomment %}
 
-{% assign blog_list = site.blog_articles | sort: 'date' %}
-{% assign reversed_blogs = blog_list | reversed %}
+{% assign all_blogs = site.blog_articles | sort: 'date' %}
+{% assign newest_first = all_blogs | reversed %}
 
-{% for post in reversed_blogs %}
+{% for post in newest_first %}
   <div class="list__item">
     <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
       <h2 class="archive__item-title" itemprop="headline">
