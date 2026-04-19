@@ -10,7 +10,9 @@
       document.documentElement.setAttribute("data-theme", "light");
     }
 
-    window.addEventListener("DOMContentLoaded", function() {
+    // Use jQuery's ready function for better compatibility with the template
+    $(document).ready(function() {
+      
       // 2. ICON SYNC
       var icon = document.getElementById("theme-icon");
       if (icon) {
@@ -21,19 +23,14 @@
         }
       }
 
-      // 3. THE "FORCE" LINK HANDLER
-      var links = document.getElementsByTagName('a');
-      for (var i = 0; i < links.length; i++) {
-        var href = links[i].getAttribute('href');
-        if (href && (href.startsWith('http://') || href.startsWith('https://'))) {
-          // Check if the link DOES NOT contain your site's URL
-          // Replace 'd8s342GIq3.github.io' with your actual domain if it's different
-          if (!href.includes(window.location.hostname)) {
-            links[i].setAttribute('target', '_blank');
-            links[i].setAttribute('rel', 'noopener noreferrer');
-          }
+      // 3. THE "FORCE" LINK HANDLER (jQuery Version)
+      // This targets every link starting with http and adds the attribute
+      $('a[href^="http"]').each(function() {
+        if (this.hostname !== window.location.hostname) {
+          $(this).attr('target', '_blank');
+          $(this).attr('rel', 'noopener noreferrer');
         }
-      }
+      });
     });
   })();
 </script>
