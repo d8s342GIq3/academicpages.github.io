@@ -197,3 +197,24 @@ h3,
   outline: 2px solid var(--text-color) !important;
   outline-offset: 2px;
 }
+
+/* Subtle modern zoom for media thumbnails */
+.archive__item-teaser {
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.archive__item-teaser img {
+  transition: transform 0.3s ease-in-out !important;
+}
+
+.archive__item-teaser img:hover {
+  transform: scale(1.05);
+}
+
+/* Accessibility: High-visibility focus for keyboard navigation */
+a:focus, button:focus {
+  outline: 3px solid #F8E55A !important; /* Your Yellow */
+  outline-offset: 3px;
+  border-radius: 2px;
+}
