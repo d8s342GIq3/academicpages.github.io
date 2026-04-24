@@ -227,6 +227,9 @@ collections:
   blog_articles:
     output: true
     permalink: /blog-articles/:path/
+  public_outreach:
+    output: true
+    permalink: /public-outreach/:path/
 
 
 
