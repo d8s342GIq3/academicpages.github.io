@@ -4,7 +4,7 @@
 {% include comments-providers/scripts.html %}
 
 <script>
-  // 1. THE "FORCE" LINK HANDLER (Runs immediately)
+  // 1. THE "FORCE" LINK HANDLER
   function tagLinks() {
     var links = document.querySelectorAll('a[href^="http"]');
     for (var i = 0; i < links.length; i++) {
@@ -15,21 +15,29 @@
     }
   }
 
-  // Run it every 500ms for the first 3 seconds to catch everything
   var count = 0;
   var interval = setInterval(function() {
     tagLinks();
     if (++count > 6) clearInterval(interval);
   }, 500);
 
+  // 2. MODERN PAGE TRANSITION (The "Speed" trick)
+  window.addEventListener("beforeunload", function () {
+    document.body.style.opacity = "0.5";
+    document.body.style.transition = "opacity 0.25s";
+  });
+
   (function() {
-    // 2. THEME PERSISTENCE
+    // 3. THEME PERSISTENCE
     if (localStorage.getItem("theme") === "light") {
       document.documentElement.setAttribute("data-theme", "light");
     }
 
     window.addEventListener("DOMContentLoaded", function() {
-      // 3. ICON SYNC
+      // Fade in the body once loaded
+      document.body.style.opacity = "1";
+      
+      // 4. ICON SYNC
       var icon = document.getElementById("theme-icon");
       if (icon) {
         if (localStorage.getItem("theme") === "light") {
