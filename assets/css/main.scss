@@ -179,21 +179,21 @@ h3,
   min-height: calc(100vh - 200px) !important;
 }
 
-/* --- High-Contrast Selection Color --- */
+/* --- Adaptive Selection Color --- */
 /* Firefox Support */
 ::-moz-selection {
-  background: #F8E55A;
-  color: #332941;
+  background: var(--text-color) !important;
+  color: var(--bg-color) !important;
 }
 
 /* Standard Browsers (Chrome, Safari, Edge) */
 ::selection {
-  background: #F8E55A;
-  color: #332941;
+  background: var(--text-color) !important;
+  color: var(--bg-color) !important;
 }
 
 /* Accessibility: Keyboard Focus Outline */
 :focus {
-  outline: 2px solid #F8E55A;
+  outline: 2px solid var(--text-color) !important;
   outline-offset: 2px;
 }
