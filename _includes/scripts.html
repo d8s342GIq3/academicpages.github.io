@@ -27,6 +27,14 @@
     document.body.style.transition = "opacity 0.25s";
   });
 
+  // Handle transitions for the site title and root links
+  document.querySelectorAll('.site-title, a[href="/"]').forEach(function(el) {
+    el.addEventListener("click", function() {
+      document.body.style.opacity = "0";
+      document.body.style.transition = "opacity 0.15s ease-out";
+    });
+  });
+  
   (function() {
     // 3. THEME PERSISTENCE
     if (localStorage.getItem("theme") === "light") {
