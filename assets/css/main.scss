@@ -178,3 +178,22 @@ h3,
 #main {
   min-height: calc(100vh - 200px) !important;
 }
+
+/* --- High-Contrast Selection Color --- */
+/* Firefox Support */
+::-moz-selection {
+  background: #F8E55A;
+  color: #332941;
+}
+
+/* Standard Browsers (Chrome, Safari, Edge) */
+::selection {
+  background: #F8E55A;
+  color: #332941;
+}
+
+/* Accessibility: Keyboard Focus Outline */
+:focus {
+  outline: 2px solid #F8E55A;
+  outline-offset: 2px;
+}
