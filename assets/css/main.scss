@@ -2,17 +2,25 @@
 ---
 
 /*
- * Standard Imports (Unchanged)
+ * This file controls what is imported from /_sass
+ *
+ * Note that the files are processed in the order they are imported, so they are partly
+   sorted by the dependencies. Also, the first two lines of the file are required by Jekyll.
  */
+
 @import
     "vendor/breakpoint/breakpoint",
+
     "themes",
     "theme/{{ site.site_theme | default: 'default' | append: '_light' }}",
     "theme/{{ site.site_theme | default: 'default' | append: '_dark' }}",
+
     "include/mixins",
     "vendor/susy/susy",
+
     "layout/reset",
     "layout/base",
+
     "include/utilities",
     "layout/tables",
     "layout/buttons",
@@ -21,128 +29,152 @@
     "layout/navigation",
     "layout/footer",
     "syntax",
+
     "layout/forms",
+
     "layout/page",
     "layout/archive",
     "layout/sidebar",
     "layout/json_cv",
+
     "vendor/font-awesome/fontawesome",
     "vendor/font-awesome/solid",
     "vendor/font-awesome/brands"
 ;
 
-/* --- THEME TOGGLE & GLOBAL REFINEMENTS --- */
+/* --- THEME TOGGLE OVERRIDE v2 --- */
 
+/* 1. DEFINE COLORS (Dark is now Default) */
 :root {
   --bg-color: #332941;   /* Purple */
   --text-color: #F8E55A; /* Yellow */
-  --link-hover: #ffffff; /* Contrast color for interaction */
 }
 
+/* If the user clicks the button to go to Light mode */
 [data-theme="light"] {
   --bg-color: #F8E55A;   /* Yellow */
   --text-color: #332941; /* Purple */
-  --link-hover: #000000;
 }
 
-/* 1. LAYOUT RESET: Ensuring the footer stays at the bottom */
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background-color: var(--bg-color) !important;
-  color: var(--text-color) !important;
-}
-
-#main {
-  flex: 1 0 auto; /* Pushes footer down naturally without fixed pixel math */
-  background-color: var(--bg-color) !important;
-}
-
-/* 2. THE MASTHEAD: Transparent and centered */
+/* 2. THE NUCLEAR FIX: Force everything in the header to be transparent */
 .masthead, 
-.masthead__inner-wrap,
-.greedy-nav {
+.masthead *, 
+.greedy-nav, 
+.greedy-nav *, 
+.visible-links, 
+.visible-links * {
   background-color: transparent !important;
-  box-shadow: none !important;
-  border-bottom: 1px solid rgba(248, 229, 90, 0.2) !important; /* Subtle themed border */
 }
 
-/* 3. TYPOGRAPHY & INTERACTION */
-a {
+/* 3. SET THE MAIN BACKGROUNDS */
+body, 
+#main, 
+.page__footer, 
+.initial-content,
+.masthead__inner-wrap {
+  background-color: var(--bg-color) !important;
   color: var(--text-color) !important;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  transition: opacity 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
-a:hover {
-  color: var(--link-hover) !important;
-  opacity: 0.8;
-}
-
-/* Ensure headings stand out */
-h1, h2, h3, h4, h5, h6 {
+/* 4. TEXT & LINKS */
+a, 
+p, 
+li, 
+h1, 
+h2, 
+h3, 
+.site-title, 
+.greedy-nav a, 
+.sidebar .profile__name, 
+.sidebar .author__bio {
   color: var(--text-color) !important;
-  border-bottom: none !important; /* Removes the default MM underline on headers */
 }
 
-/* 4. PUBLIC OUTREACH REFINEMENTS */
-/* Custom class for your media feed to ensure spacing is consistent */
-.list__item {
-  border-bottom: 1px solid rgba(248, 229, 90, 0.1) !important;
-  padding: 1.5rem 0;
-}
-
-.list__item:last-child {
-  border-bottom: none !important;
-}
-
-/* 5. SIDEBAR & NAVICON */
+/* 5. SIDEBAR FIX */
 .sidebar {
   background-color: transparent !important;
   border: none !important;
 }
 
-/* Make hamburger icon match theme */
+/* 6. ICON & HAMBURGER FIX */
 .navicon, .navicon::before, .navicon::after {
   background-color: var(--text-color) !important;
 }
 
-/* 6. THEME TOGGLE BUTTON UI */
-#theme-toggle {
-  background: transparent;
-  border: 1px solid var(--text-color);
-  border-radius: 20px;
-  padding: 5px 12px !important;
-  margin-left: 15px;
-  cursor: pointer !important;
-  display: inline-flex !important;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.2s ease;
+/* Remove shadows and clashing borders */
+.masthead {
+  box-shadow: none !important;
+  border-bottom: 2px solid rgba(0,0,0,0.05) !important;
 }
 
-#theme-toggle:hover {
-  transform: scale(1.05);
-  background: rgba(248, 229, 90, 0.1) !important;
+/* Hide the Hamburger menu button entirely */
+.greedy-nav button {
+  display: none !important;
+}
+
+/* Ensure links stay visible even on smaller screens */
+.greedy-nav .visible-links {
+  display: flex !important;
+  flex-wrap: wrap;
+}
+
+/* Optional: Center the menu if it looks cramped on mobile */
+@media (max-width: 768px) {
+  .masthead__menu ul {
+    justify-content: center;
+  }
+}
+
+/* Make the theme toggle easier to click */
+#theme-toggle {
+  display: inline-block !important;
+  padding: 10px !important;
+  cursor: pointer !important;
+  z-index: 999;
 }
 
 #theme-icon {
-  font-size: 0.9em !important;
+  pointer-events: none; /* This makes the click pass THROUGH the icon to the button */
+}
+
+/* Ensure the toggle is on top of everything and shows the pointer cursor */
+#theme-toggle, 
+.masthead__menu-item--lg,
+[title="toggle theme"] {
+  cursor: pointer !important;
+  z-index: 9999 !important;
+  position: relative;
+}
+
+/* Prevent the icon from blocking the click */
+#theme-icon {
   pointer-events: none;
 }
 
-/* 7. RESPONSIVE FIXES */
-@media (max-width: 768px) {
-  /* Ensure nav items don't overlap on small screens */
-  .greedy-nav .visible-links {
-    display: flex !important;
-    justify-content: center;
-    font-size: 0.9rem;
-  }
-  
-  .masthead__menu-item {
-    margin-right: 10px;
-  }
+/* Precise alignment for the theme toggle */
+#theme-toggle {
+  display: inline-block !important;
+  vertical-align: middle !important;
+  padding: 4px 10px 0 10px !important; /* The 12px nudges it down from the top */
+  margin: 0 !important;
+  border: none !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+}
+
+#theme-icon {
+  font-size: 0.85em !important; /* Slightly smaller to match text height */
+  color: var(--text-color) !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+}
+
+/* Remove any hover effects that might shift it */
+#theme-toggle:hover {
+  background: transparent !important;
+  opacity: 0.8;
+}
+
+#main {
+  min-height: calc(100vh - 200px) !important;
 }
