@@ -5,18 +5,14 @@ permalink: /inspirations/
 author_profile: true
 
 gallery:
-  - url: "https://example-source-1.com"
-    image_path: "https://placehold.co/600x400"
-    alt: "Description of Figure 1"
-    title: "Project Name or Figure Title"
-  - url: "https://example-source-2.com"
-    image_path: "https://placehold.co/600x400"
-    alt: "Description of Figure 2"
-    title: "Scientific Illustration"
-  - url: "https://example-source-3.com"
-    image_path: "https://placehold.co/600x400"
-    alt: "Description of Figure 3"
-    title: "Data Visualization"
+  - url: "https://bigthink.com/strange-maps/mapping-the-limits-of-human-perception/"
+    image_path: "/images/Figure11.webp"
+    alt: "Approximation of human experience of time and space in the physical world"
+    title: "Approximation of human experience of time and space in the physical world"
+  - url: "https://science.nasa.gov/resource/voyager-pale-blue-dot-download/"
+    image_path: "/images/PIA23645.jpg"
+    alt: "Pale Blue Dot"
+    title: "Pale Blue Dot"
 ---
 
 A collection of ideas, figures, and concepts that drive my work.
