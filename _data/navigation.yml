@@ -18,7 +18,10 @@ main:
     url: /blog-articles/ 
 
   - title: "Public Outreach"
-    url: /public-outreach/ 
+    url: /public-outreach/
+
+  - title: "Inspirations"
+    url: /inspirations/
 
   - title: "CV"
     url: /cv/
