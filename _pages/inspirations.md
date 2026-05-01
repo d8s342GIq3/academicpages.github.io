@@ -6,7 +6,7 @@ author_profile: true
 
 gallery:
   - url: "https://bigthink.com/strange-maps/mapping-the-limits-of-human-perception/"
-    image_path: "images/Figure11.webp"
+    image_path: "[https://www.psychawelogy.com/images/Figure11.webp]"
     alt: "Approximation of human experience of time and space in the physical world"
     title: "Approximation of human experience of time and space in the physical world"
   - url: "https://science.nasa.gov/resource/voyager-pale-blue-dot-download/"
