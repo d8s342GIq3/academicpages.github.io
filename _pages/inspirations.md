@@ -13,6 +13,10 @@ gallery:
     image_path: "../assets/images/PIA23645.jpg"
     alt: "Pale Blue Dot"
     caption: "Pale Blue Dot"
+  - url: "https://www.researchgate.net/publication/361589395_CHILDREN'S_DRAWINGS_AS_AN_EXPERIENCE_-SCOPEAND_LIMITS_OF_THEIR_REVELATIONSCHILDREN'S_DRAWINGS_AS_AN_EXPERIENCE_-_SCOPEAND_LIMITS_OF_THEIR_REVELATIONS"
+    image_path: "../assets/images/TheKiss.png"
+    alt: "The Kiss"
+    caption: "The Kiss"
 ---
 
 A collection of ideas, figures, and concepts that drive my work.
