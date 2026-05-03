@@ -21,6 +21,22 @@
   img, iframe {
     max-width: 100%;
   }
+  @media (max-width: 600px) {
+  /* Forces the sidebar to stay within bounds */
+  .sidebar {
+    width: 100% !important;
+    position: relative !important;
+    float: none !important;
+    margin-bottom: 2em !important;
+  }
+
+  /* Centers the main content and prevents side-scrolling */
+  .archive, .page, .single {
+    width: 100% !important;
+    padding-right: 15px !important;
+    padding-left: 15px !important;
+  }
+}
 </style>
 
 <link rel="stylesheet" href="{{ base_path }}/assets/css/academicons.css"/>
