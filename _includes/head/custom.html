@@ -1,8 +1,26 @@
 {% include base_path %}
 
+<!-- Critical for Mobile Alignment -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
-  html { background-color: #332941 !important; } /* Default Dark Purple */
-  [data-theme="light"] html { background-color: #F8E55A !important; } /* Light Yellow */
+  /* Apply background to both html and body for mobile consistency */
+  html, body { 
+    background-color: #332941 !important; 
+    margin: 0; 
+    padding: 0;
+    overflow-x: hidden; /* Prevents side-scrolling on mobile */
+  } 
+
+  [data-theme="light"] html, 
+  [data-theme="light"] body { 
+    background-color: #F8E55A !important; 
+  }
+
+  /* Ensure images and embeds don't "poke out" of the screen */
+  img, iframe {
+    max-width: 100%;
+  }
 </style>
 
 <link rel="stylesheet" href="{{ base_path }}/assets/css/academicons.css"/>
@@ -15,11 +33,9 @@
 <link rel="icon" href="/images/favicon.ico"/>
 
 <script>
-  if (localStorage.getItem("theme") === "light") {
+  // Simplified theme check
+  const currentTheme = localStorage.getItem("theme") || "dark";
+  if (currentTheme === "light") {
     document.documentElement.setAttribute("data-theme", "light");
-    document.querySelector('meta[name="theme-color"]').setAttribute("content", "#F8E55A");
-  } else {
-    document.querySelector('meta[name="theme-color"]').setAttribute("content", "#332941");
   }
 </script>
-<meta name="theme-color" content="#332941"/>
