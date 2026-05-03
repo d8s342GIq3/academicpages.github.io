@@ -11,12 +11,42 @@ Browse my recent media appearances, podcasts, and video presentations.
 
 {% assign outreach = site.public_outreach | sort: 'date' | reverse %}
 
+<style>
+  .outreach-item {
+    border-bottom: 1px solid #444; 
+    padding-bottom: 30px; 
+    margin-bottom: 30px; 
+    display: flex; 
+    flex-direction: row; /* Side-by-side on desktop */
+    align-items: center;
+  }
+
+  .outreach-image {
+    flex: 0 0 250px; 
+    margin-right: 30px;
+  }
+
+  /* Mobile responsiveness: Stack them vertically when screen is small */
+  @media (max-width: 768px) {
+    .outreach-item {
+      flex-direction: column; 
+      align-items: flex-start;
+    }
+    .outreach-image {
+      flex: 0 0 auto;
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+  }
+</style>
+
 <div class="entries-list">
   {% for entry in outreach %}
-    <div class="list__item" style="border-bottom: 1px solid #444; padding-bottom: 30px; margin-bottom: 30px; display: flex; align-items: center;">
+    <div class="outreach-item">
       
       {% if entry.header.teaser %}
-      <div style="flex: 0 0 250px; margin-right: 30px;">
+      <div class="outreach-image">
           <img src="{{ entry.header.teaser }}" alt="{{ entry.title }}" style="border-radius: 8px; width: 100%; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
       </div>
       {% endif %}
