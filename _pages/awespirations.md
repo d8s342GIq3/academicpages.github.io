@@ -1,7 +1,7 @@
 ---
 layout: archive
-title: "Inspirations"
-permalink: /inspirations/
+title: "Awespirations"
+permalink: /awespirations/
 author_profile: true
 
 gallery:
