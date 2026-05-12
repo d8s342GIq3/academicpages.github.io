@@ -80,3 +80,9 @@ redirect_from:
 * **Technical:** EEG data collection & analysis, Eye-tracking
 * **Statistical software:** R / RStudio, SPSS
 * **Languages:** English (C2), Slovak (Native), Czech (B2)
+
+## Hobbies
+---
+* **Discovery:** Philosophy, Psychology, Astronomy, Science Fiction
+* **Expression:** Guitar, Singing, Cooking, Tabletop Role-Playing Games
+* **Recreation:** Hiking, Canoeing, Stargazing, Cloudspotting, Floorball
