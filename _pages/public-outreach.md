@@ -32,18 +32,31 @@ Browse my recent media appearances, podcasts, and video presentations.
 
 <div class="entries-list">
   {% for entry in outreach %}
-    <!-- THE START OF THE INDIVIDUAL ITEM -->
+    {% assign primary_link = entry.youtube_url | default: entry.spotify_url | default: entry.apple_url | default: entry.link %}
+
     <div class="outreach-item">
       
       {% if entry.header.teaser %}
       <div class="outreach-image">
+        {% if primary_link %}
+          <a href="{{ primary_link }}" target="_blank" rel="noopener noreferrer">
+            <img src="{{ entry.header.teaser }}" alt="{{ entry.title }}" style="border-radius: 8px; width: 100%; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+          </a>
+        {% else %}
           <img src="{{ entry.header.teaser }}" alt="{{ entry.title }}" style="border-radius: 8px; width: 100%; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+        {% endif %}
       </div>
       {% endif %}
 
       <div class="outreach-content">
         <h2 style="margin-top: 0; border-bottom: none; font-size: 1.5em;">
-          {{ entry.title | replace: " | ", ": " }}
+          {% if primary_link %}
+            <a href="{{ primary_link }}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+              {{ entry.title | replace: " | ", ": " }}
+            </a>
+          {% else %}
+            {{ entry.title | replace: " | ", ": " }}
+          {% endif %}
         </h2>
         
         <p style="font-size: 0.9em; color: #999; margin-bottom: 15px;">
@@ -52,19 +65,18 @@ Browse my recent media appearances, podcasts, and video presentations.
 
         <div class="media-buttons">
           {% if entry.youtube_url %}
-            <a href="{{ entry.youtube_url }}" class="btn btn--danger" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
+            <a href="{{ entry.youtube_url }}" class="btn btn--danger" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i> YouTube</a>
           {% endif %}
           
           {% if entry.spotify_url %}
-            <a href="{{ entry.spotify_url }}" class="btn btn--success" target="_blank"><i class="fab fa-spotify"></i> Spotify</a>
+            <a href="{{ entry.spotify_url }}" class="btn btn--success" target="_blank" rel="noopener noreferrer"><i class="fab fa-spotify"></i> Spotify</a>
           {% endif %}
 
           {% if entry.apple_url %}
-            <a href="{{ entry.apple_url }}" class="btn btn--info" target="_blank"><i class="fas fa-podcast"></i> Apple</a>
+            <a href="{{ entry.apple_url }}" class="btn btn--info" target="_blank" rel="noopener noreferrer"><i class="fas fa-podcast"></i> Apple</a>
           {% endif %}
         </div>
       </div>
       
-    </div> <!-- THE END OF THE INDIVIDUAL ITEM -->
-  {% endfor %}
+    </div> {% endfor %}
 </div>
