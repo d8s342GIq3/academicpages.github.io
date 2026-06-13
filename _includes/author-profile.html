@@ -1,12 +1,3 @@
-<style type="text/css">
-  .author__urls.social-icons .svg-inline--fa, 
-  .author__urls.social-icons i {
-    padding-left: 2px !important;
-    margin-right: 8px !important;
-    overflow: visible !important;
-  }
-</style>
-
 {% include base_path %}
 
 {% if page.author and site.data.authors[page.author] %}
@@ -14,6 +5,15 @@
 {% endif %}
 
 <div itemscope itemtype="http://schema.org/Person">
+
+  <style type="text/css">
+    .author__urls.social-icons .svg-inline--fa, 
+    .author__urls.social-icons i {
+      padding-left: 2px !important;
+      margin-right: 8px !important;
+      overflow: visible !important;
+    }
+  </style>
 
   <div class="author__avatar">
     {% if author.avatar contains "://" %}
