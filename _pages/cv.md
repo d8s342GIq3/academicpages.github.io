@@ -16,11 +16,11 @@ redirect_from:
 
 ## Research Experience
 ---
-* **Research Assistant**, [Centre for Positive Health Sciences](https://www.rcsi.com/dublin/about/faculty-of-medicine-and-health-sciences/centre-for-positive-health-sciences), [Royal College of Surgeons in Ireland](https://www.rcsi.com/), Dublin, Ireland *(2023 - Present)*
-  * [Forest4Youth](https://forest4youth.nweurope.eu/) (€5 500 000 funded by Interreg North-West Europe, EU, 2025 - 2028)
-  * [PsyTales](https://psytales.eu/) (€250 000 funded by Erasmus+ KA220, EU, 2024 - 2026)
-  * [VNiC-Health](https://www.sfi.ie/challenges/healthy-environment-all/vnic-health/) (€300 000 funded by Research Ireland, 2023 - 2025)
-* **Research Assistant**, Department of Psychology, [University of York](https://www.york.ac.uk), York, England *(2020 - 2022)*
+* **Research Assistant**, [Centre for Positive Health Sciences](https://www.rcsi.com/dublin/about/faculty-of-medicine-and-health-sciences/centre-for-positive-health-sciences){:target="_blank"}, [Royal College of Surgeons in Ireland](https://www.rcsi.com/){:target="_blank"}, Dublin, Ireland *(2023 - Present)*
+  * [Forest4Youth](https://forest4youth.nweurope.eu/){:target="_blank"} (€5 500 000 funded by Interreg North-West Europe, EU, 2025 - 2028)
+  * [PsyTales](https://psytales.eu/){:target="_blank"} (€250 000 funded by Erasmus+ KA220, EU, 2024 - 2026)
+  * [VNiC-Health](https://www.sfi.ie/challenges/healthy-environment-all/vnic-health/){:target="_blank"} (€300 000 funded by Research Ireland, 2023 - 2025)
+* **Research Assistant**, Department of Psychology, [University of York](https://www.york.ac.uk){:target="_blank"}, York, England *(2020 - 2022)*
   * Research areas: face perception, language, eye-tracking, meaning
 
 ## Publications
@@ -38,13 +38,13 @@ redirect_from:
 ## Supervision Experience
 ---
 * **Student Selected Research Project Supervisor**, RCSI, *2024*
-  * Project: *Nature’s heart: A scoping review of the impact of nature-based interventions for cardiovascular and metabolic disease.* * Resulted in publication: [doi.org/10.1093/pubmed/fdaf074](https://doi.org/10.1093/pubmed/fdaf074)
+  * Project: *Nature’s heart: A scoping review of the impact of nature-based interventions for cardiovascular and metabolic disease.* * Resulted in publication: [doi.org/10.1093/pubmed/fdaf074](https://doi.org/10.1093/pubmed/fdaf074){:target="_blank"}
 * **Student Selected Research Project Supervisor**, RCSI, *2024*
   * Project: *Costs and Experiences of Green Prescriptions: A Scoping Review.*
 
 ## Committee Membership
 ---
-* **Scientific Committee**, [European Conference on Positive Psychology 2026](https://www.ecpp2026.com/), Dublin, Ireland
+* **Scientific Committee**, [European Conference on Positive Psychology 2026](https://www.ecpp2026.com/){:target="_blank"}, Dublin, Ireland
 
 ## Conference Presentations
 ---
