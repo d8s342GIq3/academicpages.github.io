@@ -18,7 +18,7 @@ This is the 'heavy duty' way to force a re-order.
   <div class="list__item">
     <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
       <h2 class="archive__item-title" itemprop="headline">
-        <a href="{{ post.external_link }}" rel="permalink">{{ post.title }}</a>
+        <a href="{{ post.external_link }}" target="_blank" rel="noopener noreferrer" rel="permalink">{{ post.title }}</a>
       </h2>
       
       <p class="page__meta">
