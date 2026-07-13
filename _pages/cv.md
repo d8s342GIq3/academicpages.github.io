@@ -53,6 +53,8 @@ redirect_from:
 * **Panellist on Environmental Education**, World Conference on Forests and Parks for Public Health, Luxembourg, *2025*
 
 ### Oral Presentations
+* **International Society of Forest Therapy Congress**, Krems, Austria, *2026*
+* **Young Leaders for Arts & Health Ireland Summit**, Dublin, Ireland, *2026*
 * **European Conference on Positive Psychology**, Dublin, Ireland, *2026*
 * **Psychology, Health and Medicine Annual Conference**, Dublin, Ireland, *2026*
 * **IV Global Summit Science, Nature and Health**, online, *2026*
