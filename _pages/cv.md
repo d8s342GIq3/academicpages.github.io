@@ -66,6 +66,7 @@ redirect_from:
 * **York Science Conference**, York, England, 2020
 
 ### Poster Presentations
+* **European Conference on Positive Psychology**, Dublin, Ireland, *2026*
 * **Royal College of Surgeons in Ireland Research Day**, Dublin, Ireland, *2025*
 * **Positive Health Summit**, Dublin, Ireland, *2025*
 * **Royal College of Surgeons in Ireland Research Day**, Dublin, Ireland, *2024*
