@@ -219,3 +219,47 @@ a:focus, button:focus {
   outline-offset: 3px;
   border-radius: 2px;
 }
+
+/* --- SIDEBAR & LAYOUT FIX FOR MID-RANGE DESKTOPS (~1280px to 1600px) --- */
+
+/* 1. Ensure text and links in the sidebar wrap instead of clipping horizontal bounds */
+.sidebar,
+.author__urls,
+.author__content {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  white-space: normal !important;
+}
+
+.author__urls li {
+  word-break: break-word !important;
+}
+
+/* Prevent icons from shrinking when link text wraps to a new line */
+.author__urls li svg,
+.author__urls li i,
+.author__urls li .fa-fw {
+  flex-shrink: 0 !important;
+}
+
+/* 2. Responsive adjustment for mid-sized desktop viewports */
+@media screen and (min-width: 64em) and (max-width: 100em) {
+  /* Reduce padding and font scale in the sidebar to prevent layout collision */
+  .sidebar {
+    padding-right: 0.75em !important;
+    font-size: 0.88rem !important;
+  }
+
+  /* Tighten spacing next to social icons */
+  .author__urls i,
+  .author__urls svg {
+    margin-right: 0.35rem !important;
+  }
+}
+
+/* 3. Flexible content wrapper alignment */
+#main {
+  max-width: 90% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
