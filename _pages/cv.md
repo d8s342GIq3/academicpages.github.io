@@ -22,18 +22,27 @@ redirect_from:
   * [VNiC-Health](https://www.sfi.ie/challenges/healthy-environment-all/vnic-health/){:target="_blank"} (€300 000 funded by Research Ireland, 2023 - 2025)
 * **Research Assistant**, Department of Psychology, [University of York](https://www.york.ac.uk){:target="_blank"}, York, England *(2020 - 2022)*
   * Research areas: face perception, language, eye-tracking, meaning
+ 
+## Scholarships & Awards
+---
+* **RCSI Doctoral Funding Scheme**, Royal College of Surgeons in Ireland, *2026 - Present*
+  * Awarded competitive doctoral funding covering 80% of PhD tuition fees
 
 ## Publications
 ---
+<ul>
 {% for post in site.publications reversed %}
   {% include archive-single-cv.html %}
 {% endfor %}
-  
+</ul>
+
 ## Teaching Experience
 ---
+<ul>
 {% for post in site.teaching reversed %}
   {% include archive-single-cv.html %}
 {% endfor %}
+</ul>
 
 ## Supervision Experience
 ---
