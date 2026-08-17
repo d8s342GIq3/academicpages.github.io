@@ -14,7 +14,7 @@ gallery:
   - url: "https://bigthink.com/strange-maps/mapping-the-limits-of-human-perception/"
     image_path: "../assets/images/Figure11.webp"
     alt: "Approximation of human experience of time and space in the physical world"
-  - url: "https://www.researchgate.net/publication/361589395_CHILDREN'S_DRAWINGS_AS_AN_EXPERIENCE_-SCOPEAND_LIMITS_OF_THEIR_REVELATIONSCHILDREN'S_DRAWINGS_AS_AN_EXPERIENCE_-_SCOPEAND_LIMITS_OF_THEIR_REVELATIONS"
+  - url: "https://www.researchgate.net/figure/The-Kiss-O-Beijo-Serra-da-Capivara-Piaui-Brazil-Personal-archive_fig1_361589395"
     image_path: "../assets/images/TheKiss.png"
     alt: "The Kiss"
   - url: "https://www.nasa.gov/image-detail/amf-art002e009007/"
