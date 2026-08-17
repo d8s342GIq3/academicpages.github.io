@@ -40,7 +40,7 @@
 ;
 
 /* ==========================================================================
-   THEME TOGGLE & COLOR SCHEME
+   1. THEME COLORS & BASE STYLES
    ========================================================================== */
 
 :root {
@@ -139,10 +139,31 @@ a, p, li, h1, h2, h3,
 }
 
 /* ==========================================================================
-   DESKTOP SIDEBAR & LAYOUT FIX
+   2. DESKTOP SIDEBAR & CONTENT ALIGNMENT (>= 1024px)
    ========================================================================== */
 
-/* Prevent long text strings in the sidebar from exceeding the sidebar container */
+@media screen and (min-width: 64em) {
+  /* Prevent box borders on desktop social links */
+  .author__urls-wrapper .author__urls,
+  .sidebar .author__urls {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+
+  /* Scale sidebar text slightly so long items wrap neatly without overflow */
+  .sidebar .author__urls {
+    font-size: 0.82rem !important;
+  }
+
+  /* Natural spacing under masthead for heading alignment */
+  .page, .archive, .sidebar {
+    margin-top: 1.5em !important;
+  }
+}
+
+/* Word wrapping for all viewports */
 .author__urls,
 .author__content,
 .author__urls_wrapper {
@@ -161,42 +182,41 @@ a, p, li, h1, h2, h3,
   flex-shrink: 0 !important;
 }
 
-/* Tighten sidebar typography on mid-to-large displays so long strings fit smoothly */
-@media screen and (min-width: 64em) {
-  .sidebar .author__urls {
-    font-size: 0.85rem !important;
+/* ==========================================================================
+   3. PAGE HEIGHT & FOOTER CLEARANCE
+   ========================================================================== */
+
+#main {
+  min-height: auto !important; /* Removes massive bottom gap */
+  padding-top: 1em !important;
+  padding-bottom: 3em !important;
+  clear: both !important;
+}
+
+/* ==========================================================================
+   4. MOBILE ONLY MENU STYLING (< 1024px)
+   ========================================================================== */
+
+@media screen and (max-width: 63.99em) {
+  .author__urls-wrapper .btn {
+    background-color: var(--text-color) !important;
+    color: var(--bg-color) !important;
+    border: 1px solid var(--text-color) !important;
+  }
+
+  .author__urls-wrapper .author__urls {
+    background-color: var(--bg-color) !important;
+    border: 1px solid var(--text-color) !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) !important;
+  }
+
+  .author__urls-wrapper .author__urls a {
+    color: var(--text-color) !important;
   }
 }
 
 /* ==========================================================================
-   MOBILE & TAB MENU STYLING
-   ========================================================================== */
-
-/* 1. Ensure page main area has clearance under top header navigation */
-#main {
-  padding-top: 1.5em !important;
-  clear: both !important;
-}
-
-/* 2. Color styling for the mobile "Follow" toggle menu tab */
-.author__urls-wrapper .btn {
-  background-color: var(--text-color) !important;
-  color: var(--bg-color) !important;
-  border: 1px solid var(--text-color) !important;
-}
-
-.author__urls-wrapper .author__urls {
-  background-color: var(--bg-color) !important;
-  border: 1px solid var(--text-color) !important;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) !important;
-}
-
-.author__urls-wrapper .author__urls a {
-  color: var(--text-color) !important;
-}
-
-/* ==========================================================================
-   SELECTION & ACCESSIBILITY
+   5. SELECTION & ACCESSIBILITY
    ========================================================================== */
 
 ::-moz-selection {
