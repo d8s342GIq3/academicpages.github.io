@@ -1,11 +1,5 @@
 {% include base_path %}
 
-{% if post.header.teaser %}
-  {% capture teaser %}{{ post.header.teaser }}{% endcapture %}
-{% else %}
-  {% assign teaser = site.teaser %}
-{% endif %}
-
 {% if post.id %}
   {% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
 {% else %}
@@ -15,18 +9,6 @@
 <li class="archive__item-cv">
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
     
-    {% if include.type == "grid" and teaser %}
-      <div class="archive__item-teaser">
-        <img src=
-          {% if teaser contains "://" %}
-            "{{ teaser }}"
-          {% else %}
-            "{{ teaser | prepend: '/images/' | prepend: base_path }}"
-          {% endif %}
-          alt="">
-      </div>
-    {% endif %}
-
     <strong class="archive__item-title" itemprop="headline">
       {% if post.paperurl %}
         <a href="{{ post.paperurl }}" target="_blank" rel="noopener noreferrer">{{ title }}</a>
