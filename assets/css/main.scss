@@ -42,21 +42,20 @@
     "vendor/font-awesome/brands"
 ;
 
-/* --- THEME TOGGLE OVERRIDE v2 --- */
+/* --- THEME TOGGLE & COLORS --- */
 
-/* 1. DEFINE COLORS (Dark is now Default) */
+/* 1. DEFINE COLORS (Dark Default) */
 :root {
   --bg-color: #332941;   /* Purple */
   --text-color: #F8E55A; /* Yellow */
 }
 
-/* If the user clicks the button to go to Light mode */
 [data-theme="light"] {
   --bg-color: #F8E55A;   /* Yellow */
   --text-color: #332941; /* Purple */
 }
 
-/* 2. THE NUCLEAR FIX: Force everything in the header to be transparent */
+/* 2. HEADER TRANSPARENCY */
 .masthead, 
 .masthead *, 
 .greedy-nav, 
@@ -66,7 +65,7 @@
   background-color: transparent !important;
 }
 
-/* 3. SET THE MAIN BACKGROUNDS */
+/* 3. MAIN BACKGROUNDS */
 body, 
 #main, 
 .page__footer, 
@@ -90,116 +89,152 @@ h3,
   color: var(--text-color) !important;
 }
 
-/* 5. SIDEBAR FIX */
+/* 5. SIDEBAR BASE STYLING */
 .sidebar {
   background-color: transparent !important;
   border: none !important;
 }
 
-/* 6. ICON & HAMBURGER FIX */
+/* 6. NAV & ICON STYLING */
 .navicon, .navicon::before, .navicon::after {
   background-color: var(--text-color) !important;
 }
 
-/* Remove shadows and clashing borders */
 .masthead {
   box-shadow: none !important;
   border-bottom: 2px solid rgba(0,0,0,0.05) !important;
+  position: relative !important;
+  z-index: 10 !important;
 }
 
-/* Hide the Hamburger menu button entirely */
 .greedy-nav button {
   display: none !important;
 }
 
-/* Ensure links stay visible even on smaller screens */
-.greedy-nav .visible-links {
-  display: flex !important;
-  flex-wrap: wrap;
+.greedy-nav {
+  position: relative !important;
+  overflow: visible !important;
 }
 
-/* Optional: Center the menu if it looks cramped on mobile */
+.greedy-nav .visible-links {
+  display: flex !important;
+  flex-wrap: wrap !important;
+}
+
 @media (max-width: 768px) {
   .masthead__menu ul {
     justify-content: center;
   }
 }
 
-/* Make the theme toggle easier to click */
-#theme-toggle {
-  display: inline-block !important;
-  padding: 10px !important;
-  cursor: pointer !important;
-  z-index: 999;
-}
-
-#theme-icon {
-  pointer-events: none; /* This makes the click pass THROUGH the icon to the button */
-}
-
-/* Ensure the toggle is on top of everything and shows the pointer cursor */
+/* 7. THEME TOGGLE BUTTON */
 #theme-toggle, 
 .masthead__menu-item--lg,
 [title="toggle theme"] {
   cursor: pointer !important;
   z-index: 9999 !important;
   position: relative;
-}
-
-/* Prevent the icon from blocking the click */
-#theme-icon {
-  pointer-events: none;
-}
-
-/* Precise alignment for the theme toggle */
-#theme-toggle {
   display: inline-block !important;
   vertical-align: middle !important;
-  padding: 4px 10px 0 10px !important; /* The 12px nudges it down from the top */
+  padding: 4px 10px 0 10px !important;
   margin: 0 !important;
   border: none !important;
   text-decoration: none !important;
-  cursor: pointer !important;
 }
 
 #theme-icon {
-  font-size: 0.85em !important; /* Slightly smaller to match text height */
+  pointer-events: none;
+  font-size: 0.85em !important;
   color: var(--text-color) !important;
   display: inline-block !important;
   vertical-align: middle !important;
 }
 
-/* Remove any hover effects that might shift it */
 #theme-toggle:hover {
   background: transparent !important;
   opacity: 0.8;
 }
 
+/* --- RESPONSIVE LAYOUT & SIDEBAR ALIGNMENT FIXES --- */
+
+/* Flexible container with header clearance */
 #main {
   min-height: calc(100vh - 200px) !important;
-  padding-top: 5em !important; /* This creates the gap for the header */
+  padding-top: 2em !important;
+  clear: both !important;
+  max-width: 1280px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
-/* --- Adaptive Selection Color --- */
-/* Firefox Support */
+/* Mobile & Tablet Stacking (< 1024px) */
+@media screen and (max-width: 63.99em) {
+  .sidebar {
+    position: relative !important;
+    float: none !important;
+    width: 100% !important;
+    margin-bottom: 2em !important;
+    padding-right: 0 !important;
+  }
+  
+  .sidebar__right {
+    position: relative !important;
+    float: none !important;
+    width: 100% !important;
+  }
+}
+
+/* Desktop Two-Column Layout (>= 1024px) */
+@media screen and (min-width: 64em) {
+  .sidebar {
+    width: 260px !important;
+    padding-right: 1.5em !important;
+  }
+}
+
+/* Force text and links in the sidebar to wrap gracefully without breaking icons */
+.sidebar,
+.author__urls,
+.author__content,
+.author__urls_wrapper {
+  word-wrap: break-word !important;
+  overflow-wrap: anywhere !important;
+  white-space: normal !important;
+}
+
+.author__urls li {
+  word-break: break-word !important;
+}
+
+.author__urls li svg,
+.author__urls li i,
+.author__urls li .fa-fw {
+  flex-shrink: 0 !important;
+}
+
+/* --- SELECTION & UTILITY ACCESSIBILITY --- */
+
 ::-moz-selection {
   background: var(--text-color) !important;
   color: var(--bg-color) !important;
 }
 
-/* Standard Browsers (Chrome, Safari, Edge) */
 ::selection {
   background: var(--text-color) !important;
   color: var(--bg-color) !important;
 }
 
-/* Accessibility: Keyboard Focus Outline */
 :focus {
   outline: 2px solid var(--text-color) !important;
   outline-offset: 2px;
 }
 
-/* Subtle modern zoom for media thumbnails */
+a:focus, button:focus {
+  outline: 3px solid #F8E55A !important;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
 .archive__item-teaser {
   overflow: hidden;
   border-radius: 8px;
@@ -211,55 +246,4 @@ h3,
 
 .archive__item-teaser img:hover {
   transform: scale(1.05);
-}
-
-/* Accessibility: High-visibility focus for keyboard navigation */
-a:focus, button:focus {
-  outline: 3px solid #F8E55A !important; /* Your Yellow */
-  outline-offset: 3px;
-  border-radius: 2px;
-}
-
-/* --- SIDEBAR & LAYOUT FIX FOR MID-RANGE DESKTOPS (~1280px to 1600px) --- */
-
-/* 1. Ensure text and links in the sidebar wrap instead of clipping horizontal bounds */
-.sidebar,
-.author__urls,
-.author__content {
-  word-wrap: break-word !important;
-  overflow-wrap: break-word !important;
-  white-space: normal !important;
-}
-
-.author__urls li {
-  word-break: break-word !important;
-}
-
-/* Prevent icons from shrinking when link text wraps to a new line */
-.author__urls li svg,
-.author__urls li i,
-.author__urls li .fa-fw {
-  flex-shrink: 0 !important;
-}
-
-/* 2. Responsive adjustment for mid-sized desktop viewports */
-@media screen and (min-width: 64em) and (max-width: 100em) {
-  /* Reduce padding and font scale in the sidebar to prevent layout collision */
-  .sidebar {
-    padding-right: 0.75em !important;
-    font-size: 0.88rem !important;
-  }
-
-  /* Tighten spacing next to social icons */
-  .author__urls i,
-  .author__urls svg {
-    margin-right: 0.35rem !important;
-  }
-}
-
-/* 3. Flexible content wrapper alignment */
-#main {
-  max-width: 90% !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
 }
