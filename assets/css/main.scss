@@ -2,7 +2,7 @@
 ---
 
 /*
- * Controls imports from /_sass
+ * AcademicPages / Minimal Mistakes Core Imports
  */
 
 @import
@@ -39,16 +39,18 @@
     "vendor/font-awesome/brands"
 ;
 
-/* --- THEME TOGGLE & COLORS --- */
+/* ==========================================================================
+   THEME TOGGLE & COLOR SCHEME
+   ========================================================================== */
 
 :root {
-  --bg-color: #332941;   /* Purple */
+  --bg-color: #332941;   /* Dark Purple */
   --text-color: #F8E55A; /* Yellow */
 }
 
 [data-theme="light"] {
   --bg-color: #F8E55A;   /* Yellow */
-  --text-color: #332941; /* Purple */
+  --text-color: #332941; /* Dark Purple */
 }
 
 /* Header Transparency */
@@ -61,7 +63,7 @@
   background-color: transparent !important;
 }
 
-/* Main Backgrounds */
+/* Base Backgrounds & Text */
 body, 
 #main, 
 .page__footer, 
@@ -71,13 +73,7 @@ body,
   color: var(--text-color) !important;
 }
 
-/* Text & Links */
-a, 
-p, 
-li, 
-h1, 
-h2, 
-h3, 
+a, p, li, h1, h2, h3, 
 .site-title, 
 .greedy-nav a, 
 .sidebar .profile__name, 
@@ -85,13 +81,11 @@ h3,
   color: var(--text-color) !important;
 }
 
-/* Sidebar Base Styling */
 .sidebar {
   background-color: transparent !important;
   border: none !important;
 }
 
-/* Nav & Icon Styling */
 .navicon, .navicon::before, .navicon::after {
   background-color: var(--text-color) !important;
 }
@@ -99,17 +93,10 @@ h3,
 .masthead {
   box-shadow: none !important;
   border-bottom: 2px solid rgba(0,0,0,0.05) !important;
-  position: relative !important;
-  z-index: 10 !important;
 }
 
 .greedy-nav button {
   display: none !important;
-}
-
-.greedy-nav {
-  position: relative !important;
-  overflow: visible !important;
 }
 
 .greedy-nav .visible-links {
@@ -151,75 +138,11 @@ h3,
   opacity: 0.8;
 }
 
-/* --- REMOVE MOBILE "FOLLOW" BUTTON --- */
+/* ==========================================================================
+   DESKTOP SIDEBAR & LAYOUT FIX
+   ========================================================================== */
 
-.author__urls-wrapper button,
-.author__urls-wrapper .btn {
-  display: none !important;
-}
-
-/* Ensure URLs remain visible on mobile when the toggle button is hidden */
-.author__urls {
-  display: block !important;
-}
-
-/* --- RESPONSIVE LAYOUT & GRID ALIGNMENT FIXES --- */
-
-#main {
-  min-height: calc(100vh - 200px) !important;
-  padding-top: 2em !important;
-  clear: both !important;
-  max-width: 1280px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  padding-left: 1em !important;
-  padding-right: 1em !important;
-}
-
-/* Mobile & Small Screens (< 1024px) */
-@media screen and (max-width: 63.99em) {
-  .sidebar {
-    position: relative !important;
-    float: none !important;
-    width: 100% !important;
-    margin-bottom: 2em !important;
-    padding-right: 0 !important;
-  }
-  
-  .archive, .page {
-    width: 100% !important;
-    float: none !important;
-    padding-left: 0 !important;
-  }
-}
-
-/* Desktop Two-Column Flex Grid (>= 1024px) */
-@media screen and (min-width: 64em) {
-  #main {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: flex-start !important;
-    justify-content: space-between !important;
-  }
-
-  .sidebar {
-    width: 280px !important;
-    min-width: 280px !important;
-    float: none !important;
-    margin-right: 2em !important;
-    padding-right: 0 !important;
-  }
-
-  .archive, .page {
-    flex: 1 1 auto !important;
-    width: calc(100% - 310px) !important;
-    float: none !important;
-    margin-left: 0 !important;
-  }
-}
-
-/* Sidebar Text Wrapping */
-.sidebar,
+/* Prevent long text strings in the sidebar from exceeding the sidebar container */
 .author__urls,
 .author__content,
 .author__urls_wrapper {
@@ -238,7 +161,43 @@ h3,
   flex-shrink: 0 !important;
 }
 
-/* --- SELECTION & UTILITY ACCESSIBILITY --- */
+/* Tighten sidebar typography on mid-to-large displays so long strings fit smoothly */
+@media screen and (min-width: 64em) {
+  .sidebar .author__urls {
+    font-size: 0.85rem !important;
+  }
+}
+
+/* ==========================================================================
+   MOBILE & TAB MENU STYLING
+   ========================================================================== */
+
+/* 1. Ensure page main area has clearance under top header navigation */
+#main {
+  padding-top: 1.5em !important;
+  clear: both !important;
+}
+
+/* 2. Color styling for the mobile "Follow" toggle menu tab */
+.author__urls-wrapper .btn {
+  background-color: var(--text-color) !important;
+  color: var(--bg-color) !important;
+  border: 1px solid var(--text-color) !important;
+}
+
+.author__urls-wrapper .author__urls {
+  background-color: var(--bg-color) !important;
+  border: 1px solid var(--text-color) !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) !important;
+}
+
+.author__urls-wrapper .author__urls a {
+  color: var(--text-color) !important;
+}
+
+/* ==========================================================================
+   SELECTION & ACCESSIBILITY
+   ========================================================================== */
 
 ::-moz-selection {
   background: var(--text-color) !important;
