@@ -62,6 +62,7 @@ redirect_from:
 * **Panellist on Environmental Education**, World Conference on Forests and Parks for Public Health, Luxembourg, *2025*
 
 ### Oral Presentations
+* **Positive Health Summit**, Dublin, Ireland, *2027*
 * **International Society of Forest Therapy Congress**, Krems, Austria, *2026*
 * **Young Leaders for Arts & Health Ireland Summit**, Dublin, Ireland, *2026*
 * **European Conference on Positive Psychology**, Dublin, Ireland, *2026*
@@ -83,6 +84,7 @@ redirect_from:
 
 ## Public Outreach & Engagement
 ---
+* **First Fortnight Festival**, Dublin, Ireland, *2027*
 * **Let's Talk Science Festival**, Rediscovery Centre, Dublin, Ireland, *2024*
 * **York Festival of Ideas**, York, England, *2022*
 * **YorNight**, York, England, *2020*
