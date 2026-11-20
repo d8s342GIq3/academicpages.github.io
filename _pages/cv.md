@@ -30,11 +30,16 @@ redirect_from:
 
 ## Publications
 ---
+{% for category in site.publication_category %}
+### {{ category[1].title }}
+
 <ul>
 {% for post in site.publications reversed %}
+  {% if post.category != category[0] %}{% continue %}{% endif %}
   {% include archive-single-cv.html %}
 {% endfor %}
 </ul>
+{% endfor %}
 
 ## Teaching Experience
 ---
